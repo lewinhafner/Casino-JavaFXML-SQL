@@ -9,14 +9,22 @@ package ch.bbbaden.casino;
  *
  * @author misch
  */
-public class VideoPokerMenuViewModel extends ViewModel{
+public class VideoPokerMenuViewModel {
     private VideoPokerMenuModel model;
-
+    private VideoPoker mainApp;
     public VideoPokerMenuViewModel(VideoPokerMenuModel model) {
         this.model = model;
+        
     }
     
     public void startAction(){
-    
+        System.out.println("sdsd");
+        mainApp.showGame();
+        
     }
+
+    public void setMainApp(VideoPoker mainApp) {
+        this.mainApp = mainApp;
+    }
+    
 }

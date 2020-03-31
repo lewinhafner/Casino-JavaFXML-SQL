@@ -34,13 +34,16 @@ public class VideoPokerMenuController implements Initializable {
 
     @FXML
     private void startAction(ActionEvent event) {
+        System.out.println("sasd");
+        vm.startAction();
     }
 
     @FXML
     private void menuAction(ActionEvent event) {
+       
     }
     
-    private void setViewModel(VideoPokerMenuViewModel vm){
+    public void setViewModel(VideoPokerMenuViewModel vm){
         this.vm = vm;
     }
     public void bind() {

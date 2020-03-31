@@ -7,7 +7,10 @@ package ch.bbbaden.casino;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -16,6 +19,9 @@ import javafx.fxml.Initializable;
  */
 public class VideoPokerGameController implements Initializable {
 
+    @FXML
+    private Button menuBtn;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +29,9 @@ public class VideoPokerGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void menuAction(ActionEvent event) {
+    }
     
 }
