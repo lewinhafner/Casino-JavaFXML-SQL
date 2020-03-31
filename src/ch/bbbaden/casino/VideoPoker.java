@@ -63,7 +63,9 @@ public class VideoPoker extends Application {
             Parent root;
             root = loader.load();
             VideoPokerGameController view = loader.getController();
-            
+            VideoPokerGameModel model= new VideoPokerGameModel();
+            VideoPokerGameViewModel viewModel = new  VideoPokerGameViewModel(model);
+            viewModel.setMainApp(this);
             Scene scene = new Scene(root);
         
             stage.setScene(scene);
@@ -72,26 +74,7 @@ public class VideoPoker extends Application {
         } catch (IOException ex) {
             Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*
-         try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/ProjectList.fxml"));
-            Parent root;
-            root = loader.load();
-            ProjectListView listView = loader.getController();
-            ProjectListViewModel viewmodel = new ProjectListViewModel(projectModel);
-            viewmodel.setMainApp(this);
-            projectModel.addPropertyChangeListener(viewmodel);
-            listView.setViewModel(viewmodel);
-            listView.bind();
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
+        
     }
     
 }

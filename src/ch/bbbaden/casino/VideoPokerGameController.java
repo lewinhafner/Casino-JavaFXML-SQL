@@ -18,7 +18,7 @@ import javafx.scene.control.Button;
  * @author misch
  */
 public class VideoPokerGameController implements Initializable {
-
+    private VideoPokerGameViewModel vm;
     @FXML
     private Button menuBtn;
 
@@ -32,6 +32,9 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void menuAction(ActionEvent event) {
+    }
+    public void setViewModel(VideoPokerGameViewModel vm){
+        this.vm = vm;
     }
     
 }
