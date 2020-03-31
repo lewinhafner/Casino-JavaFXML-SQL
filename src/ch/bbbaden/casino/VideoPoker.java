@@ -19,7 +19,13 @@ public class VideoPoker extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/VideoPokerMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VideoPokerMenu.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.show();
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("view/VideoPokerMenu.fxml"));
         Parent root;
         root = loader.load();
         VideoPokerMenuController view = loader.getController();
@@ -31,7 +37,7 @@ public class VideoPoker extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
         /*
          FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         Parent root;
