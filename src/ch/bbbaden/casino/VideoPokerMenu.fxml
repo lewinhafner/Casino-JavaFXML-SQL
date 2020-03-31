@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ch.bbbaden.casino.VideoPokerMenuController">
+   <children>
+      <Label layoutX="197.0" layoutY="24.0" prefHeight="107.0" prefWidth="207.0" text="VideoPoker">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <Button fx:id="startBtn" layoutX="404.0" layoutY="258.0" mnemonicParsing="false" onAction="#startAction" prefHeight="55.0" prefWidth="145.0" text="Starten" />
+      <Button fx:id="menuBtn" layoutX="69.0" layoutY="258.0" mnemonicParsing="false" onAction="#menuAction" prefHeight="55.0" prefWidth="145.0" text="Menu" />
+   </children>
+</AnchorPane>
