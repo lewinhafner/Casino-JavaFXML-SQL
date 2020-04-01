@@ -38,4 +38,9 @@ public class VideoPokerGameModel {
         }
         changes.firePropertyChange("Bet1", oldCoin, coinAnz);
     }
+     public void coinAnzBet5(){
+        int oldCoin = coinAnz;
+        coinAnz = 5;
+        changes.firePropertyChange("Bet1", oldCoin, coinAnz);
+    }
 }

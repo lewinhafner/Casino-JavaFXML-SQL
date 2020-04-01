@@ -39,6 +39,9 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public void bet1(){
         model.coinAnzBet1();
     }
+    public void bet5(){
+        model.coinAnzBet5();
+    }
     
     
 }

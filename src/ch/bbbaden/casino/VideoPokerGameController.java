@@ -58,6 +58,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void bet5Action(ActionEvent event) {
+        vm.bet5();
     }
 
     @FXML
