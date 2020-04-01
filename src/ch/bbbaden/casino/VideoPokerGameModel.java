@@ -25,6 +25,7 @@ public class VideoPokerGameModel {
     private int coinAnz = 1;
     private double coinVal = 0.25;
     private boolean ersteRunde = true;
+    
     public void AddPropertyChangeListener(final PropertyChangeListener listener){
         changes.addPropertyChangeListener(listener);
     }

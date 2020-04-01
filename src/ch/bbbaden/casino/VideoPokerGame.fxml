@@ -4,14 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.VideoPokerGameController">
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.VideoPokerGameController">
    <children>
-      <Button fx:id="menuBtn" layoutX="27.0" layoutY="337.0" mnemonicParsing="false" onAction="#menuAction" text="Menu" />
-      <Button fx:id="bet1Btn" layoutX="176.0" layoutY="337.0" mnemonicParsing="false" onAction="#bet1Action" text="Bet 1" />
-      <Button fx:id="bet5Btn" layoutX="319.0" layoutY="337.0" mnemonicParsing="false" onAction="#bet5Action" text="Bet 5" />
-      <Button fx:id="coinValue" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#coinValueAction" text="Coin" />
-      <Label fx:id="coinAnz" layoutX="252.0" layoutY="307.0" text="1" />
-      <Button fx:id="dealBtn" layoutX="514.0" layoutY="337.0" mnemonicParsing="false" onAction="#dealAction" text="Deal" />
-      <Label fx:id="card1" layoutX="27.0" layoutY="121.0" onMouseClicked="#card1Action" prefHeight="106.0" prefWidth="59.0" text="1.Karte" />
+      <Button fx:id="menuBtn" layoutX="27.0" layoutY="460.0" mnemonicParsing="false" onAction="#menuAction" prefHeight="47.0" prefWidth="90.0" text="Menu" />
+      <Button fx:id="bet1Btn" layoutX="207.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet1Action" prefHeight="47.0" prefWidth="90.0" text="Bet 1" />
+      <Button fx:id="bet5Btn" layoutX="437.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet5Action" prefHeight="47.0" prefWidth="90.0" text="Bet 5" />
+      <Button fx:id="coinValue" layoutX="319.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="90.0" text="Coin" />
+      <Label fx:id="coinAnz" layoutX="348.0" layoutY="420.0" prefHeight="31.0" prefWidth="32.0" text="1" />
+      <Button fx:id="dealBtn" layoutX="680.0" layoutY="460.0" mnemonicParsing="false" onAction="#dealAction" prefHeight="47.0" prefWidth="90.0" text="Deal" />
+      <Label fx:id="card1" layoutX="27.0" layoutY="121.0" onMouseClicked="#card1Action" prefHeight="226.0" prefWidth="137.0" text="1.Karte" />
+      <Label fx:id="card2" layoutX="190.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="Karte 2" />
+      <Label fx:id="card3" layoutX="341.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="Karet3" />
+      <Label fx:id="card4" layoutX="496.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="Karte 4" />
+      <Label fx:id="card5" layoutX="657.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="karte 5" />
    </children>
 </AnchorPane>

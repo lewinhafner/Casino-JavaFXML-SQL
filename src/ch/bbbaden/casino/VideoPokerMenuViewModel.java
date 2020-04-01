@@ -18,7 +18,7 @@ public class VideoPokerMenuViewModel {
     }
     
     public void startAction(){
-        System.out.println("sdsd");
+       
         mainApp.showGame();
         
     }
