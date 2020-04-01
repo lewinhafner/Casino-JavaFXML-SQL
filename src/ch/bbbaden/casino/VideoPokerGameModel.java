@@ -5,10 +5,20 @@
  */
 package ch.bbbaden.casino;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author misch
  */
 public class VideoPokerGameModel {
+    ArrayList<Card> deck = new ArrayList<>();
     
+    public void generateCards(){
+        for(Color color : Color.values()){
+            for(Rank rank : Rank.values()){
+                deck.add(new Card(rank,color));
+            }
+        }
+    }
 }

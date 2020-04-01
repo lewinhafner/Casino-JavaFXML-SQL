@@ -10,20 +10,20 @@ package ch.bbbaden.casino;
  * @author misch
  */
 public class Card {
-    private String rank;
-    private String color;
+    private Rank rank;
+    private Color color;
     private boolean hold = true;
 
-    public Card(String rank, String color) {
+    public Card(Rank rank, Color color) {
         this.rank = rank;
         this.color = color;
     }
 
-    public String getRank() {
+    public Rank getRank() {
         return rank;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -31,7 +31,9 @@ public class Card {
         return hold;
     }
 
-    public void setRank(String rank) {
-        this.rank = rank;
+    public void setHold(boolean hold) {
+        this.hold = hold;
     }
+
+   
 }
