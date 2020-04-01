@@ -24,7 +24,7 @@ public class VideoPoker extends Application {
     public void start(Stage stage) throws Exception {
       
        this.stage = stage;
-       showMenu();
+       showGame();
        
     }
 
@@ -66,6 +66,9 @@ public class VideoPoker extends Application {
             VideoPokerGameModel model= new VideoPokerGameModel();
             VideoPokerGameViewModel viewModel = new  VideoPokerGameViewModel(model);
             viewModel.setMainApp(this);
+            model.AddPropertyChangeListener(viewModel);
+            view.setViewModel(viewModel);
+            view.bind();
             Scene scene = new Scene(root);
         
             stage.setScene(scene);

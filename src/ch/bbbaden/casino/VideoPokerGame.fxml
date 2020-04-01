@@ -6,7 +6,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.VideoPokerGameController">
    <children>
-      <Label layoutX="176.0" layoutY="90.0" prefHeight="97.0" prefWidth="168.0" text="HI" />
       <Button fx:id="menuBtn" layoutX="27.0" layoutY="337.0" mnemonicParsing="false" onAction="#menuAction" text="Menu" />
+      <Button fx:id="bet1Btn" layoutX="176.0" layoutY="337.0" mnemonicParsing="false" onAction="#bet1Action" text="Bet 1" />
+      <Button fx:id="bet5Btn" layoutX="319.0" layoutY="337.0" mnemonicParsing="false" onAction="#bet5Action" text="Bet 5" />
+      <Button fx:id="coinValue" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#coinValueAction" text="Coin" />
+      <Label fx:id="coinAnz" layoutX="252.0" layoutY="307.0" text="1" />
    </children>
 </AnchorPane>
