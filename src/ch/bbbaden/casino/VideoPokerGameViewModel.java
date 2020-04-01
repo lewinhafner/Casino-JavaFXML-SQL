@@ -23,6 +23,10 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public VideoPokerGameViewModel(VideoPokerGameModel model) {
         this.model = model;
     }
+
+    public StringProperty getCoinVal() {
+        return coinVal;
+    }
     
     public void setMainApp(VideoPoker mainApp) {
         this.mainApp = mainApp;
@@ -30,7 +34,13 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-         coinAnz.set(evt.getNewValue().toString());
+        if(evt.getPropertyName().equals("Bet")){
+            coinAnz.set(evt.getNewValue().toString());
+        }else if(evt.getPropertyName().equals("updateCoin")){
+            coinVal.set(evt.getNewValue().toString() + " $");
+        }
+        
+          
     }
 
     public StringProperty getCoinAnz() {     
@@ -41,6 +51,9 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     }
     public void bet5(){
         model.coinAnzBet5();
+    }
+    public void setCoinVal(){
+        model.setCoinVal();
     }
     
     

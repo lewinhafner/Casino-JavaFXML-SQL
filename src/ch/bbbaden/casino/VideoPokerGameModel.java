@@ -17,6 +17,7 @@ public class VideoPokerGameModel {
      protected final PropertyChangeSupport changes = new PropertyChangeSupport(this);
     private ArrayList<Card> deck = new ArrayList<>();
     private int coinAnz = 1;
+    private double coinVal = 0.25;
     
     public void AddPropertyChangeListener(final PropertyChangeListener listener){
         changes.addPropertyChangeListener(listener);
@@ -36,11 +37,35 @@ public class VideoPokerGameModel {
         }else{
             coinAnz += 1;
         }
-        changes.firePropertyChange("Bet1", oldCoin, coinAnz);
+        changes.firePropertyChange("Bet", oldCoin, coinAnz);
     }
      public void coinAnzBet5(){
         int oldCoin = coinAnz;
         coinAnz = 5;
-        changes.firePropertyChange("Bet1", oldCoin, coinAnz);
+        changes.firePropertyChange("Bet", oldCoin, coinAnz);
     }
+
+    public void setCoinVal() {
+        double oldValue = coinVal;
+        if(coinVal == 0.25){
+            coinVal = 0.5;
+        }else if(coinVal == 0.5){
+            coinVal = 1;
+        }else if(coinVal == 1){
+            coinVal = 2;
+        }else if(coinVal == 2){
+            coinVal = 5;
+        }else if(coinVal == 5){
+            coinVal = 10;
+        }else if(coinVal == 10){
+            coinVal = 50;
+        }else if(coinVal == 50){
+            coinVal = 100;
+        }else{
+            coinVal = 0.25;
+        }
+        changes.firePropertyChange("updateCoin", oldValue, coinVal);
+    }
+     
+    
 }

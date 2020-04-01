@@ -42,6 +42,7 @@ public class VideoPokerGameController implements Initializable {
     
      public void bind(){
         coinAnz.textProperty().bind(vm.getCoinAnz());
+        coinValue.textProperty().bind(vm.getCoinVal());
     }
 
     @FXML
@@ -63,6 +64,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void coinValueAction(ActionEvent event) {
+        vm.setCoinVal();
     }
     
 }
