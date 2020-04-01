@@ -7,6 +7,7 @@ package ch.bbbaden.casino;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -17,9 +18,11 @@ import javafx.beans.property.StringProperty;
 public class VideoPokerGameViewModel implements PropertyChangeListener{
     private VideoPokerGameModel model;
     private VideoPoker mainApp;
+    private ArrayList<Card> deck = new ArrayList();
+    
     private StringProperty coinVal = new SimpleStringProperty();
     private StringProperty coinAnz = new SimpleStringProperty();
-
+    private boolean ersteRunde = true;
     public VideoPokerGameViewModel(VideoPokerGameModel model) {
         this.model = model;
     }
@@ -56,5 +59,12 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
         model.setCoinVal();
     }
     
+    public void spiele(){
+        model.deal();
+        deck = model.getCardsOnTable();
+    }
+    public Card getCard(int i){
+        return deck.get(i);
+    }
     
 }

@@ -8,6 +8,7 @@ package ch.bbbaden.casino;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -15,10 +16,15 @@ import java.util.ArrayList;
  */
 public class VideoPokerGameModel {
      protected final PropertyChangeSupport changes = new PropertyChangeSupport(this);
+     //Spiel
     private ArrayList<Card> deck = new ArrayList<>();
+    private ArrayList<Card> cardsOnTable = new ArrayList<>();
+    private int cards;
+    
+    
     private int coinAnz = 1;
     private double coinVal = 0.25;
-    
+    private boolean ersteRunde = true;
     public void AddPropertyChangeListener(final PropertyChangeListener listener){
         changes.addPropertyChangeListener(listener);
     }
@@ -29,6 +35,7 @@ public class VideoPokerGameModel {
                 deck.add(new Card(rank,color));
             }
         }
+        Collections.shuffle(deck);
     }
     public void coinAnzBet1(){
         int oldCoin = coinAnz;
@@ -66,6 +73,20 @@ public class VideoPokerGameModel {
         }
         changes.firePropertyChange("updateCoin", oldValue, coinVal);
     }
-     
+    
+    public void deal(){
+        if(ersteRunde == true){
+            generateCards();
+            for(int i = 0; i <5; i++){
+                cardsOnTable.add(deck.get(i));
+            }
+            cards = 4;
+            
+        }
+    }
+
+    public ArrayList<Card> getCardsOnTable() {
+        return cardsOnTable;
+    }
     
 }

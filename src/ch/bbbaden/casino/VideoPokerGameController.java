@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -30,6 +31,10 @@ public class VideoPokerGameController implements Initializable {
     private Button coinValue;
     @FXML
     private Label coinAnz;
+    @FXML
+    private Button dealBtn;
+    @FXML
+    private Label card1;
 
     /**
      * Initializes the controller class.
@@ -66,5 +71,35 @@ public class VideoPokerGameController implements Initializable {
     private void coinValueAction(ActionEvent event) {
         vm.setCoinVal();
     }
+
+    @FXML
+    private void dealAction(ActionEvent event) {
+        vm.spiele();
+        cards();
+    }
+
+    @FXML
+    private void card1Action(MouseEvent event) {
+    }
     
+    public void cards(){
+        Card karte1 = vm.getCard(0);
+        card1.setText(karte1.getColor() + " "+ karte1.getRank());
+        Card karte2 = vm.getCard(1);
+        Card karte3 = vm.getCard(2);
+        Card karte4 = vm.getCard(3);
+        Card karte5 = vm.getCard(4);
+    }
+    public void showCard(Color color, Rank rank){
+        if(color == Color.CLUB){
+            
+        }else if(color == Color.DIAMOND){
+        
+        }else if(color == Color.HEART){
+        
+        }else{
+        
+        }
+        
+    }
 }

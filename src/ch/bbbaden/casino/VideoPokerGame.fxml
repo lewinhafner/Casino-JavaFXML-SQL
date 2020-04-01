@@ -11,5 +11,7 @@
       <Button fx:id="bet5Btn" layoutX="319.0" layoutY="337.0" mnemonicParsing="false" onAction="#bet5Action" text="Bet 5" />
       <Button fx:id="coinValue" layoutX="244.0" layoutY="337.0" mnemonicParsing="false" onAction="#coinValueAction" text="Coin" />
       <Label fx:id="coinAnz" layoutX="252.0" layoutY="307.0" text="1" />
+      <Button fx:id="dealBtn" layoutX="514.0" layoutY="337.0" mnemonicParsing="false" onAction="#dealAction" text="Deal" />
+      <Label fx:id="card1" layoutX="27.0" layoutY="121.0" onMouseClicked="#card1Action" prefHeight="106.0" prefWidth="59.0" text="1.Karte" />
    </children>
 </AnchorPane>
