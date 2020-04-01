@@ -24,7 +24,7 @@ public class VideoPoker extends Application {
     public void start(Stage stage) throws Exception {
       
        this.stage = stage;
-       showGame();
+       showMenu();
        
     }
 
