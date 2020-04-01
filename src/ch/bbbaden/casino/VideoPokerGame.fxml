@@ -17,5 +17,6 @@
       <Label fx:id="card3" layoutX="341.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="Karet3" />
       <Label fx:id="card4" layoutX="496.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="Karte 4" />
       <Label fx:id="card5" layoutX="657.0" layoutY="121.0" prefHeight="226.0" prefWidth="137.0" text="karte 5" />
+      <Label fx:id="winLbl" layoutX="645.0" layoutY="65.0" text="Win" />
    </children>
 </AnchorPane>
