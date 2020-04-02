@@ -13,19 +13,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author misch
  */
 public class VideoPoker extends Application {
+
     Stage stage;
+
     @Override
     public void start(Stage stage) throws Exception {
-      
-       this.stage = stage;
-       showMenu();
-       
+
+        this.stage = stage;
+        showMenu();
+
     }
 
     /**
@@ -34,50 +37,49 @@ public class VideoPoker extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    public void showMenu(){
-         try {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerMenu.fxml"));
-        Parent root;
-        root = loader.load();
-        VideoPokerMenuController view = loader.getController();
-        VideoPokerMenuModel model= new VideoPokerMenuModel();
-        VideoPokerMenuViewModel viewModel = new  VideoPokerMenuViewModel(model);
-        viewModel.setMainApp(this);
-        view.setViewModel(viewModel);
-        
-        
-        
-       final Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
-            
+
+    public void showMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerMenu.fxml"));
+            Parent root;
+            root = loader.load();
+            VideoPokerMenuController view = loader.getController();
+            VideoPokerMenuModel model = new VideoPokerMenuModel();
+            VideoPokerMenuViewModel viewModel = new VideoPokerMenuViewModel(model);
+            viewModel.setMainApp(this);
+            view.setViewModel(viewModel);
+
+            final Scene scene = new Scene(root);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+
         } catch (IOException ex) {
             Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void showGame(){  
+
+    public void showGame() {
         System.out.println("dcvsdv");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerGame.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerGameController view = loader.getController();
-            VideoPokerGameModel model= new VideoPokerGameModel();
-            VideoPokerGameViewModel viewModel = new  VideoPokerGameViewModel(model);
+            VideoPokerGameModel model = new VideoPokerGameModel();
+            VideoPokerGameViewModel viewModel = new VideoPokerGameViewModel(model);
             viewModel.setMainApp(this);
             model.AddPropertyChangeListener(viewModel);
             view.setViewModel(viewModel);
             view.bind();
             Scene scene = new Scene(root);
-        
             stage.setScene(scene);
             stage.show();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
+
 }

@@ -40,6 +40,7 @@ public class VideoPokerMenuController implements Initializable {
 
     @FXML
     private void menuAction(ActionEvent event) {
+        System.exit(0);
        
     }
     

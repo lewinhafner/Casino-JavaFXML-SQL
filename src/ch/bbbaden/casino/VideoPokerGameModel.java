@@ -94,7 +94,9 @@ public class VideoPokerGameModel {
                 cardsOnTable.add(deck.get(i));
             }
             cards = 4;
+            winQuote = 0;
             gewinnUeberpruefung();
+            
             ersteRunde = false;
         } else {
             ersteRunde = true;
@@ -119,10 +121,10 @@ public class VideoPokerGameModel {
             gewinnUeberpruefung();
             String oldWinTxt = winTxt;
             if (winQuote > 0) {
-                winTxt = "win";
+                winTxt = "Win";
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
-                winTxt = "gameOver";
+                winTxt = "GameOver";
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
         }
@@ -131,7 +133,7 @@ public class VideoPokerGameModel {
     public void gamble() {
         String oldWinTxt = winTxt;
         if (winTxt.equals("Gamble verloren") || winTxt.equals("Können nicht gamblen")) {
-            winTxt = "Können nicht gamblen";
+            winTxt = "Du hast verloren";
             changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
         } else {
             generateCards();
