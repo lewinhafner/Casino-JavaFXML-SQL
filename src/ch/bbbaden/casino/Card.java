@@ -13,6 +13,15 @@ public class Card {
     private Rank rank;
     private Color color;
     private boolean hold = true;
+    private boolean verdeckt = false;
+
+    public void setVerdeckt(boolean verdeckt) {
+        this.verdeckt = verdeckt;
+    }
+
+    public boolean isVerdeckt() {
+        return verdeckt;
+    }
 
     public Card(Rank rank, Color color) {
         this.rank = rank;

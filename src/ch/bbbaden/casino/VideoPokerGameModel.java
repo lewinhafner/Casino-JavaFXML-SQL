@@ -9,6 +9,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 /**
  *
@@ -95,35 +96,76 @@ public class VideoPokerGameModel {
             cards = 4;
             gewinnUeberpruefung();
             ersteRunde = false;
-        }else{
+        } else {
             ersteRunde = true;
             ArrayList<Integer> intRemove = new ArrayList<>();
             int anz = 0;
             int y = 0;
-            for(Card card : cardsOnTable){
-                if(card.getHold() == false){
+            for (Card card : cardsOnTable) {
+                if (card.getHold() == false) {
                     intRemove.add(y - anz);
-                     anz++;
+                    anz++;
                 }
-               y++;
+                y++;
             }
-            for(int i : intRemove){
+            for (int i : intRemove) {
                 cardsOnTable.remove(i);
             }
             int m = 1;
-            for (int i = 4 - anz; i < 4; i++){
+            for (int i = 4 - anz; i < 4; i++) {
                 cardsOnTable.add(deck.get(cards + m));
                 m++;
             }
             gewinnUeberpruefung();
             String oldWinTxt = winTxt;
-            if(winQuote>0){
+            if (winQuote > 0) {
                 winTxt = "win";
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
-            }else{
+            } else {
                 winTxt = "gameOver";
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
+        }
+    }
+
+    public void gamble() {
+        String oldWinTxt = winTxt;
+        if (winTxt.equals("Gamble verloren") || winTxt.equals("Können nicht gamblen")) {
+            winTxt = "Können nicht gamblen";
+            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+        } else {
+            generateCards();
+            cardsOnTable.removeAll(cardsOnTable);
+            for (int i = 0; i < 5; i++) {
+                cardsOnTable.add(deck.get(i));
+            }
+            for (Card card : cardsOnTable) {
+                card.setVerdeckt(true);
+            }
+            Random r = new Random();
+            int i = r.nextInt(5);
+            cardsOnTable.get(i).setVerdeckt(false);
+        }
+    }
+
+    public void vergleicheCardsGamble(int i) {
+        String oldWinTxt = winTxt;
+
+        Card karte1 = null;
+        Card karte2 = cardsOnTable.get(i);
+
+        for (Card card : cardsOnTable) {
+            if (card.isVerdeckt() == false) {
+                karte1 = card;
+            }
+        }
+        cardsOnTable.get(i).setVerdeckt(false);
+        if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
+            winTxt = "Gamble gewonnen";
+            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+        } else {
+            winTxt = "Gamble verloren";
+            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
         }
     }
 
@@ -159,19 +201,19 @@ public class VideoPokerGameModel {
         } else if (drilling() == true) {
             winQuote = coinAnz * 1;
             changes.firePropertyChange("win", winOld, winQuote);
-        }else{
+        } else {
             winQuote = 0;
             changes.firePropertyChange("win", winOld, winQuote);
         }
     }
-    public void card1Hold(int i){
-        if(cardsOnTable.get(i).getHold() == true){
+
+    public void card1Hold(int i) {
+        if (cardsOnTable.get(i).getHold() == true) {
             cardsOnTable.get(i).setHold(false);
-        }else{
+        } else {
             cardsOnTable.get(i).setHold(true);
         }
     }
-    
 
     public ArrayList<Card> getCardsOnTable() {
         return cardsOnTable;

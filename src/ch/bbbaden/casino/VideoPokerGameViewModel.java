@@ -83,6 +83,12 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public StringProperty getWinTxt() {
         return winTxt;
     }
-    
+    public void gamble(){
+        model.gamble();
+        deck = model.getCardsOnTable();
+    }
+    public void vergleicheCardsGamble(int i){
+        model.vergleicheCardsGamble(i);
+    }
     
 }

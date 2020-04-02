@@ -26,6 +26,8 @@ import javafx.scene.layout.AnchorPane;
 public class VideoPokerGameController implements Initializable {
     private VideoPokerGameViewModel vm;
     private boolean ersteRunde = true; 
+    private boolean canGamble = false;
+    private boolean gambleMode = false;
     @FXML
     private Button menuBtn;
     @FXML
@@ -52,6 +54,9 @@ public class VideoPokerGameController implements Initializable {
     private Label winLbl;
     @FXML
     private Label winTxtLbl;
+    @FXML
+    private Button gambleBtn;
+    
 
     /**
      * Initializes the controller class.
@@ -93,62 +98,110 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void dealAction(ActionEvent event) {
-        if(ersteRunde==true){
+        if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Können nicht gamblen") ){
+            canGamble = false;
             vm.spiele();
             cards();
             ersteRunde = false;
             dealBtn.setText("Draw");
-        }else{
+        }else if (gambleMode == false){
             vm.spiele();
             cards();
             ersteRunde = true;
-             dealBtn.setText("Deal");
+            dealBtn.setText("Deal");
+            if(winTxtLbl.getText().equals("win")){
+                canGamble = true;
+                System.out.println(canGamble);
+            }
         }
         
     }
 
     @FXML
     private void card1Action(MouseEvent event) {
-        vm.card(0);
+        if(gambleMode == false){
+            vm.card(0);
+        }else{
+            vm.vergleicheCardsGamble(0);
+            gambleMode = false;
+             cards();
+        }
+        
     }
      @FXML
     private void card2Action(MouseEvent event) {
-        vm.card(1);
+        if(gambleMode == false){
+            vm.card(1);
+        }else{
+            vm.vergleicheCardsGamble(1);
+            gambleMode = false;
+            cards();
+        }
+        
     }
 
     @FXML
     private void card3Action(MouseEvent event) {
-        vm.card(2);
+        if(gambleMode == false){
+            vm.card(2);
+        }else{
+            vm.vergleicheCardsGamble(2);
+            gambleMode = false;
+            cards();
+        }
     }
 
     @FXML
     private void card4Action(MouseEvent event) {
-        vm.card(3);
+         if(gambleMode == false){
+            vm.card(3);
+        }else{
+            vm.vergleicheCardsGamble(3);
+            gambleMode = false;
+             cards();
+        }
     }
 
     @FXML
     private void card5Action(MouseEvent event) {
-        vm.card(4);
+        if(gambleMode == false){
+            vm.card(4);
+        }else{
+            vm.vergleicheCardsGamble(4);
+            gambleMode = false;
+             cards();
+        }
+    }
+    @FXML
+    private void gambleAction(ActionEvent event) {
+        if(canGamble == true && gambleMode == false){
+            vm.gamble();
+            gambleMode = true;
+            cards();
+        }
     }
     
     public void cards(){
         Card karte1 = vm.getCard(0);
         card1.setText("");
-        card1.setGraphic(new ImageView(showCard(karte1.getColor(),karte1.getRank())));
+        card1.setGraphic(new ImageView(showCard(karte1.getColor(),karte1.getRank(),karte1)));
         Card karte2 = vm.getCard(1);
         card2.setText("");
-        card2.setGraphic(new ImageView(showCard(karte2.getColor(),karte2.getRank())));
+        card2.setGraphic(new ImageView(showCard(karte2.getColor(),karte2.getRank(),karte2)));
         Card karte3 = vm.getCard(2);
         card3.setText("");
-        card3.setGraphic(new ImageView(showCard(karte3.getColor(),karte3.getRank())));
+        card3.setGraphic(new ImageView(showCard(karte3.getColor(),karte3.getRank(),karte3)));
         Card karte4 = vm.getCard(3);
         card4.setText("");
-        card4.setGraphic(new ImageView(showCard(karte4.getColor(),karte4.getRank())));
+        card4.setGraphic(new ImageView(showCard(karte4.getColor(),karte4.getRank(),karte4)));
         Card karte5 = vm.getCard(4);
         card5.setText("");
-        card5.setGraphic(new ImageView(showCard(karte5.getColor(),karte5.getRank())));
+        card5.setGraphic(new ImageView(showCard(karte5.getColor(),karte5.getRank(),karte5)));
     }
-    public String showCard(Color color, Rank rank){
+    public String showCard(Color color, Rank rank, Card card){
+        if(card.isVerdeckt() == true){
+            return "cards/purple_back.png";
+        }
         if(color == Color.CLUB){
             
             if(rank == Rank.ACE){
@@ -271,6 +324,8 @@ public class VideoPokerGameController implements Initializable {
         }
         
     }
+
+  
 
    
 }

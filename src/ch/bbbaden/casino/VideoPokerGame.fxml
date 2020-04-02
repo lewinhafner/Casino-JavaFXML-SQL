@@ -14,10 +14,11 @@
       <Button fx:id="dealBtn" layoutX="680.0" layoutY="460.0" mnemonicParsing="false" onAction="#dealAction" prefHeight="47.0" prefWidth="90.0" text="Deal" />
       <Label fx:id="card1" layoutX="27.0" layoutY="121.0" onMouseClicked="#card1Action" prefHeight="226.0" prefWidth="137.0" text="1.Karte" />
       <Label fx:id="card2" layoutX="190.0" layoutY="121.0" onMouseClicked="#card2Action" prefHeight="226.0" prefWidth="137.0" text="Karte 2" />
-      <Label fx:id="card3" layoutX="341.0" layoutY="121.0" onMouseClicked="#card3Action" prefHeight="226.0" prefWidth="137.0" text="Karet3" />
+      <Label fx:id="card3" layoutX="341.0" layoutY="121.0" onMouseClicked="#card3Action" prefHeight="226.0" prefWidth="137.0" text="Karte 3" />
       <Label fx:id="card4" layoutX="508.0" layoutY="121.0" onMouseClicked="#card4Action" prefHeight="226.0" prefWidth="137.0" text="Karte 4" />
       <Label fx:id="card5" layoutX="657.0" layoutY="121.0" onMouseClicked="#card5Action" prefHeight="226.0" prefWidth="137.0" text="karte 5" />
       <Label fx:id="winLbl" layoutX="645.0" layoutY="65.0" text="Win" />
       <Label fx:id="winTxtLbl" layoutX="363.0" layoutY="65.0" text="winTxt" />
+      <Button fx:id="gambleBtn" layoutX="569.0" layoutY="460.0" mnemonicParsing="false" onAction="#gambleAction" prefHeight="47.0" prefWidth="90.0" text="Gamblen" />
    </children>
 </AnchorPane>
