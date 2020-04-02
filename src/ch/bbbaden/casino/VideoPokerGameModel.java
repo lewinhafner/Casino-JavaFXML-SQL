@@ -392,7 +392,7 @@ public class VideoPokerGameModel {
     private boolean straightFlush() {
         ArrayList<Rank> rankA = new ArrayList<>();
         ArrayList<Color> color = new ArrayList<>();
-        boolean ausgabe = false;
+
         for (Card card : cardsOnTable) {
             rankA.add(card.getRank());
             color.add(card.getColor());
@@ -412,10 +412,44 @@ public class VideoPokerGameModel {
         }
         if (alleFarben == true) {
             Collections.sort(rankA);
-            Rank rank1 = rankA.get(0);
+            Rank rank1 = null;
+            if (rankA.get(0) != Rank.TWO) {
+                rank1 = rankA.get(0);
+            } else if (rankA.get(1) != Rank.TWO) {
+                rank1 = rankA.get(1);
+            } else if (rankA.get(2) != Rank.TWO) {
+                rank1 = rankA.get(2);
+            } else if (rankA.get(3) != Rank.TWO) {
+                rank1 = rankA.get(3);
+            } else if (rankA.get(4) != Rank.TWO) {
+                rank1 = rankA.get(4);
+            }
+            int val = rank1.getValue();
+            if (val == rankA.get(0).getValue() || rankA.get(0) == Rank.TWO) {
+                if (rankA.get(0) != Rank.TWO) {
+                    val++;
+                }
+                if (val == rankA.get(1).getValue() || rankA.get(1) == Rank.TWO) {
+                    if (rankA.get(1) != Rank.TWO) {
+                        val++;
+                    }
+                    if (val == rankA.get(2).getValue() || rankA.get(1) == Rank.TWO) {
+                        if (rankA.get(2) != Rank.TWO) {
+                            val++;
+                        }
+                        if (val == rankA.get(3).getValue() || rankA.get(3) == Rank.TWO) {
+                            if (rankA.get(3) != Rank.TWO) {
+                                val++;
+                            }
+                            if (val == rankA.get(4).getValue() || rankA.get(4) == Rank.TWO) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
-
-        return ausgabe;
+        return false;
     }
 
     private boolean vierling() {
@@ -524,8 +558,44 @@ public class VideoPokerGameModel {
             rankA.add(card.getRank());
 
         }
+
         Collections.sort(rankA);
-        Rank rank1 = rankA.get(0);
+        Rank rank1 = null;
+        if (rankA.get(0) != Rank.TWO) {
+            rank1 = rankA.get(0);
+        } else if (rankA.get(1) != Rank.TWO) {
+            rank1 = rankA.get(1);
+        } else if (rankA.get(2) != Rank.TWO) {
+            rank1 = rankA.get(2);
+        } else if (rankA.get(3) != Rank.TWO) {
+            rank1 = rankA.get(3);
+        } else if (rankA.get(4) != Rank.TWO) {
+            rank1 = rankA.get(4);
+        }
+        int val = rank1.getValue();
+        if (val == rankA.get(0).getValue() || rankA.get(0) == Rank.TWO) {
+            if (rankA.get(0) != Rank.TWO) {
+                val++;
+            }
+            if (val == rankA.get(1).getValue() || rankA.get(1) == Rank.TWO) {
+                if (rankA.get(1) != Rank.TWO) {
+                    val++;
+                }
+                if (val == rankA.get(2).getValue() || rankA.get(1) == Rank.TWO) {
+                    if (rankA.get(2) != Rank.TWO) {
+                        val++;
+                    }
+                    if (val == rankA.get(3).getValue() || rankA.get(3) == Rank.TWO) {
+                        if (rankA.get(3) != Rank.TWO) {
+                            val++;
+                        }
+                        if (val == rankA.get(4).getValue() || rankA.get(4) == Rank.TWO || val == 4 && rankA.get(4) == Rank.ACE || val == 5 && rankA.get(4) == Rank.ACE || val == 3 && rankA.get(4) == Rank.ACE ) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
 
         return false;
     }

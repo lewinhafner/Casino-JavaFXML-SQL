@@ -20,5 +20,6 @@
       <Label fx:id="winLbl" layoutX="645.0" layoutY="65.0" text="Win" />
       <Label fx:id="winTxtLbl" layoutX="363.0" layoutY="65.0" text="winTxt" />
       <Button fx:id="gambleBtn" layoutX="569.0" layoutY="460.0" mnemonicParsing="false" onAction="#gambleAction" prefHeight="47.0" prefWidth="90.0" text="Gamblen" />
+      <Label layoutX="27.0" layoutY="425.0" text="100$" />
    </children>
 </AnchorPane>
