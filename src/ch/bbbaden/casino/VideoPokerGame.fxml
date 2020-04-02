@@ -39,7 +39,7 @@
          <font>
             <Font name="Impact" size="24.0" />
          </font></Button>
-      <Button fx:id="coinValue" layoutX="334.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="90.0" text="100 $">
+      <Button fx:id="coinValue" layoutX="325.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="99.0" text="0.25 $">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
@@ -47,7 +47,10 @@
          <font>
             <Font name="Impact" size="24.0" />
          </font></Button>
-      <Label fx:id="coinAnz" layoutX="379.0" layoutY="420.0" prefHeight="31.0" prefWidth="32.0" text="1" textFill="#fffbfb" />
+      <Label fx:id="coinAnz" layoutX="379.0" layoutY="420.0" prefHeight="31.0" prefWidth="32.0" text="1" textFill="#fffbfb">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
       <Button fx:id="dealBtn" layoutX="687.0" layoutY="460.0" mnemonicParsing="false" onAction="#dealAction" prefHeight="47.0" prefWidth="90.0" text="Deal">
          <styleClass>
             <String fx:value="Button" />
@@ -77,7 +80,10 @@
          <font>
             <Font name="Impact" size="24.0" />
          </font></Button>
-      <Label layoutX="27.0" layoutY="425.0" text="100$" textFill="#e4ca04" />
+      <Label layoutX="27.0" layoutY="425.0" text="100$" textFill="#e4ca04">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
       <Label layoutX="43.0" layoutY="65.0" text="VideoPoker" textFill="#f5f5f5">
          <font>
             <Font size="24.0" />

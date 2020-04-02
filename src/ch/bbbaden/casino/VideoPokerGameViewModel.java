@@ -27,6 +27,8 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     
     public VideoPokerGameViewModel(VideoPokerGameModel model) {
         this.model = model;
+        coinVal.setValue("0.25 $");
+        coinAnz.setValue("1");
     }
 
     public StringProperty getCoinVal() {
