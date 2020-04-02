@@ -131,6 +131,15 @@ public class VideoPokerGameModel {
             changes.firePropertyChange("win", winOld, win);
         }
     }
+    public void card1Hold(int i){
+        if(cardsOnTable.get(i).getHold() == true){
+            cardsOnTable.get(i).setHold(false);
+        }else{
+            cardsOnTable.get(i).setHold(true);
+        }
+        System.out.println(cardsOnTable.get(i).getHold());
+    }
+    
 
     public ArrayList<Card> getCardsOnTable() {
         return cardsOnTable;

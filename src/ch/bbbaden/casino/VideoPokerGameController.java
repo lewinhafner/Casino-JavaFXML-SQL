@@ -93,6 +93,7 @@ public class VideoPokerGameController implements Initializable {
             vm.spiele();
             cards();
             ersteRunde = false;
+            dealBtn.setText("Draw");
         }else{
             vm.spiele();
             cards();
@@ -102,6 +103,26 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void card1Action(MouseEvent event) {
+        vm.card(0);
+    }
+     @FXML
+    private void card2Action(MouseEvent event) {
+        vm.card(1);
+    }
+
+    @FXML
+    private void card3Action(MouseEvent event) {
+        vm.card(2);
+    }
+
+    @FXML
+    private void card4Action(MouseEvent event) {
+        vm.card(3);
+    }
+
+    @FXML
+    private void card5Action(MouseEvent event) {
+        vm.card(4);
     }
     
     public void cards(){
@@ -244,4 +265,6 @@ public class VideoPokerGameController implements Initializable {
         }
         
     }
+
+   
 }

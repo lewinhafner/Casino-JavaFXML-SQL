@@ -74,5 +74,9 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public Card getCard(int i){
         return deck.get(i);
     }
+    public void card(int i){
+        model.card1Hold(i);
+    }
+    
     
 }

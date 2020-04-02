@@ -27,7 +27,7 @@ public class Card {
         return color;
     }
 
-    public boolean isHold() {
+    public boolean getHold() {
         return hold;
     }
 
