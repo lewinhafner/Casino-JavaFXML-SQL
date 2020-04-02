@@ -21,8 +21,8 @@ public class VideoPokerGameModel {
     private ArrayList<Card> deck = new ArrayList<>();
     private ArrayList<Card> cardsOnTable = new ArrayList<>();
     private int cards;
-    private int win = 0;
-
+    private int winQuote = 0;
+    private String winTxt = "";
     private int coinAnz = 1;
     private double coinVal = 0.25;
     private boolean ersteRunde = true;
@@ -92,43 +92,76 @@ public class VideoPokerGameModel {
             for (int i = 0; i < 5; i++) {
                 cardsOnTable.add(deck.get(i));
             }
-            cards = 5;
+            cards = 4;
             gewinnUeberpruefung();
+            ersteRunde = false;
+        }else{
+            ersteRunde = true;
+            ArrayList<Integer> intRemove = new ArrayList<>();
+            int anz = 0;
+            int y = 0;
+            for(Card card : cardsOnTable){
+                if(card.getHold() == false){
+                    intRemove.add(y - anz);
+                     anz++;
+                }
+               y++;
+            }
+            for(int i : intRemove){
+                cardsOnTable.remove(i);
+            }
+            int m = 1;
+            for (int i = 4 - anz; i < 4; i++){
+                cardsOnTable.add(deck.get(cards + m));
+                m++;
+            }
+            gewinnUeberpruefung();
+            String oldWinTxt = winTxt;
+            if(winQuote>0){
+                winTxt = "win";
+                changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+            }else{
+                winTxt = "gameOver";
+                changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+            }
         }
     }
 
     public void gewinnUeberpruefung() {
-        int winOld = win;
+        int winOld = winQuote;
         if (natural_royal_flush() == true) {
-            win = coinAnz * 800;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 800;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (vier_deuces() == true) {
-            win = coinAnz * 200;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 200;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (wild_royal_flush() == true) {
-            win = coinAnz * 25;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 25;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (funfGleiche() == true) {
-            win = coinAnz * 15;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 15;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (straightFlush() == true) {
-            win = coinAnz * 9;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 9;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (vierling() == true) {
-            win = coinAnz * 5;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 5;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (fullHouse() == true) {
-            win = coinAnz * 3;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 3;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (flush() == true) {
-            win = coinAnz * 2;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 2;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (straight() == true) {
-            win = coinAnz * 2;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 2;
+            changes.firePropertyChange("win", winOld, winQuote);
         } else if (drilling() == true) {
-            win = coinAnz * 1;
-            changes.firePropertyChange("win", winOld, win);
+            winQuote = coinAnz * 1;
+            changes.firePropertyChange("win", winOld, winQuote);
+        }else{
+            winQuote = 0;
+            changes.firePropertyChange("win", winOld, winQuote);
         }
     }
     public void card1Hold(int i){
@@ -137,7 +170,6 @@ public class VideoPokerGameModel {
         }else{
             cardsOnTable.get(i).setHold(true);
         }
-        System.out.println(cardsOnTable.get(i).getHold());
     }
     
 

@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -49,6 +50,8 @@ public class VideoPokerGameController implements Initializable {
     private Label card5;
     @FXML
     private Label winLbl;
+    @FXML
+    private Label winTxtLbl;
 
     /**
      * Initializes the controller class.
@@ -62,7 +65,8 @@ public class VideoPokerGameController implements Initializable {
      public void bind(){
         coinAnz.textProperty().bind(vm.getCoinAnz());
         coinValue.textProperty().bind(vm.getCoinVal());
-        winLbl.textProperty().bind(vm.getWin());
+        winLbl.textProperty().bind(vm.getWinQuote());
+        winTxtLbl.textProperty().bind(vm.getWinTxt());
     }
 
     @FXML
@@ -97,6 +101,8 @@ public class VideoPokerGameController implements Initializable {
         }else{
             vm.spiele();
             cards();
+            ersteRunde = true;
+             dealBtn.setText("Deal");
         }
         
     }

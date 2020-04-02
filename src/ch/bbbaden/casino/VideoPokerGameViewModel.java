@@ -19,10 +19,10 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     private VideoPokerGameModel model;
     private VideoPoker mainApp;
     private ArrayList<Card> deck = new ArrayList();
-    
+    private StringProperty winTxt = new SimpleStringProperty();
     private StringProperty coinVal = new SimpleStringProperty();
     private StringProperty coinAnz = new SimpleStringProperty();
-    private StringProperty win = new SimpleStringProperty();
+    private StringProperty winQuote = new SimpleStringProperty();
     private boolean ersteRunde = true;
     
     public VideoPokerGameViewModel(VideoPokerGameModel model) {
@@ -33,8 +33,8 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
         return coinVal;
     }
 
-    public StringProperty getWin() {
-        return win;
+    public StringProperty getWinQuote() {
+        return winQuote;
     }
     
     public void setMainApp(VideoPoker mainApp) {
@@ -48,7 +48,9 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
         }else if(evt.getPropertyName().equals("updateCoin")){
             coinVal.set(evt.getNewValue().toString() + " $");
         }else if(evt.getPropertyName().equals("win")){
-            win.set(evt.getNewValue().toString());
+            winQuote.set(evt.getNewValue().toString());
+        }else if(evt.getPropertyName().equals("winTxt")){
+            winTxt.set(evt.getNewValue().toString());
         }
         
           
@@ -76,6 +78,10 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     }
     public void card(int i){
         model.card1Hold(i);
+    }
+
+    public StringProperty getWinTxt() {
+        return winTxt;
     }
     
     
