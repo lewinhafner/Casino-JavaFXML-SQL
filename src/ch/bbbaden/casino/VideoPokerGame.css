@@ -8,3 +8,9 @@ and open the template in the editor.
     Author     : misch
 */
 
+.Button{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,100), 10, 0.0,0,1);
+}
+.colorBtn{
+    -fx-background-color: rgb(234, 215, 7);
+}
