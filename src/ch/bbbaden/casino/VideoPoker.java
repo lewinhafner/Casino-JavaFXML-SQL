@@ -81,5 +81,19 @@ public class VideoPoker extends Application {
         }
 
     }
+    public void showHilfe() {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerHilfe.fxml"));
+            Parent root;
+            root = loader.load();
+            VideoPokerHilfeController view = loader.getController();
+            view.setMainApp(this);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }catch (IOException ex) {
+            Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

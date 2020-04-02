@@ -19,28 +19,43 @@
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
-      <Button fx:id="bet1Btn" layoutX="207.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet1Action" prefHeight="47.0" prefWidth="90.0" text="Bet 1">
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
+      <Button fx:id="bet1Btn" layoutX="216.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet1Action" prefHeight="47.0" prefWidth="90.0" text="Bet 1">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
-      <Button fx:id="bet5Btn" layoutX="437.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet5Action" prefHeight="47.0" prefWidth="90.0" text="Bet 5">
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
+      <Button fx:id="bet5Btn" layoutX="444.0" layoutY="460.0" mnemonicParsing="false" onAction="#bet5Action" prefHeight="47.0" prefWidth="90.0" text="Bet 5">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
-      <Button fx:id="coinValue" layoutX="319.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="90.0" text="Coin">
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
+      <Button fx:id="coinValue" layoutX="334.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="90.0" text="100 $">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
-      <Label fx:id="coinAnz" layoutX="363.0" layoutY="420.0" prefHeight="31.0" prefWidth="32.0" text="1" textFill="#fffbfb" />
-      <Button fx:id="dealBtn" layoutX="680.0" layoutY="460.0" mnemonicParsing="false" onAction="#dealAction" prefHeight="47.0" prefWidth="90.0" text="Deal">
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
+      <Label fx:id="coinAnz" layoutX="379.0" layoutY="420.0" prefHeight="31.0" prefWidth="32.0" text="1" textFill="#fffbfb" />
+      <Button fx:id="dealBtn" layoutX="687.0" layoutY="460.0" mnemonicParsing="false" onAction="#dealAction" prefHeight="47.0" prefWidth="90.0" text="Deal">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
       <Label fx:id="card1" layoutX="27.0" layoutY="121.0" onMouseClicked="#card1Action" prefHeight="226.0" prefWidth="137.0" />
       <Label fx:id="card2" layoutX="184.0" layoutY="121.0" onMouseClicked="#card2Action" prefHeight="226.0" prefWidth="137.0" />
       <Label fx:id="card3" layoutX="341.0" layoutY="121.0" onMouseClicked="#card3Action" prefHeight="226.0" prefWidth="137.0" />
@@ -54,16 +69,27 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button fx:id="gambleBtn" layoutX="569.0" layoutY="460.0" mnemonicParsing="false" onAction="#gambleAction" prefHeight="47.0" prefWidth="90.0" text="Gamblen">
+      <Button fx:id="gambleBtn" layoutX="554.0" layoutY="460.0" mnemonicParsing="false" onAction="#gambleAction" prefHeight="47.0" prefWidth="122.0" text="Gamblen">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
-         </styleClass></Button>
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
       <Label layoutX="27.0" layoutY="425.0" text="100$" textFill="#e4ca04" />
       <Label layoutX="43.0" layoutY="65.0" text="VideoPoker" textFill="#f5f5f5">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Button fx:id="hilfeBtn" layoutX="767.0" layoutY="14.0" mnemonicParsing="false" onAction="#hilfeAction" text="?" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="Button" />
+            <String fx:value="hilfeBtn" />
+         </styleClass></Button>
    </children>
 </AnchorPane>

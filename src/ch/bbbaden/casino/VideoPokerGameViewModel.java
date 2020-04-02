@@ -91,5 +91,8 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public void vergleicheCardsGamble(int i){
         model.vergleicheCardsGamble(i);
     }
+    public void hilfe(){
+        mainApp.showHilfe();
+    }
     
 }

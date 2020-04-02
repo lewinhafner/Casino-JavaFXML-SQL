@@ -56,6 +56,8 @@ public class VideoPokerGameController implements Initializable {
     private Label winTxtLbl;
     @FXML
     private Button gambleBtn;
+    @FXML
+    private Button hilfeBtn;
     
 
     /**
@@ -183,7 +185,10 @@ public class VideoPokerGameController implements Initializable {
             cards();
         }
     }
-    
+     @FXML
+    private void hilfeAction(ActionEvent event) {
+        vm.hilfe();
+    }
     public void cards(){
         Card karte1 = vm.getCard(0);
         card1.setText("");
@@ -327,6 +332,8 @@ public class VideoPokerGameController implements Initializable {
         }
         
     }
+
+   
 
   
 
