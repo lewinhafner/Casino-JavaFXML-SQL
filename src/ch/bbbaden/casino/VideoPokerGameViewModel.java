@@ -70,6 +70,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     }
     
     public void spiele(){
+        winTxt.set("");
         model.deal();
         deck = model.getCardsOnTable();
     }
