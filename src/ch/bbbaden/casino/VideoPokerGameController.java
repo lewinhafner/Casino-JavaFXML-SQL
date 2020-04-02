@@ -108,7 +108,6 @@ public class VideoPokerGameController implements Initializable {
             ersteRunde = false;
             dealBtn.setText("Draw");
             gambleMode = false;
-            
         }else if (gambleMode == false){
             vm.spiele();
             cards();
@@ -116,7 +115,6 @@ public class VideoPokerGameController implements Initializable {
             dealBtn.setText("Deal");
             if(winTxtLbl.getText().equals("Win")){
                 canGamble = true;
-                System.out.println(canGamble);
             }
         }
         

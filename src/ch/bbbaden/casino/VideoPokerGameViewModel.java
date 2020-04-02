@@ -47,8 +47,8 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
             coinAnz.set(evt.getNewValue().toString());
         }else if(evt.getPropertyName().equals("updateCoin")){
             coinVal.set(evt.getNewValue().toString() + " $");
-        }else if(evt.getPropertyName().equals("win")){
-            winQuote.set(evt.getNewValue().toString());
+        }else if(evt.getPropertyName().equals("win")){           
+            winQuote.set(evt.getNewValue().toString());            
         }else if(evt.getPropertyName().equals("winTxt")){
             winTxt.set(evt.getNewValue().toString());
         }

@@ -203,9 +203,9 @@ public class VideoPokerGameModel {
         } else if (drilling() == true) {
             winQuote = coinAnz * 1;
             changes.firePropertyChange("win", winOld, winQuote);
-        } else {
-            winQuote = 0;
-            changes.firePropertyChange("win", winOld, winQuote);
+        } else{
+            winQuote = coinAnz * 0;
+             changes.firePropertyChange("win", winOld, winQuote);
         }
     }
 

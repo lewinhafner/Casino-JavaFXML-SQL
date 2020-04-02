@@ -60,7 +60,6 @@ public class VideoPoker extends Application {
     }
 
     public void showGame() {
-        System.out.println("dcvsdv");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerGame.fxml"));
             Parent root;
