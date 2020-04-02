@@ -165,8 +165,11 @@ public class VideoPokerGameModel {
         if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
             winTxt = "Gamble gewonnen";
             changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
-        } else {
+        } else if(karte2.getRank().getValue() < karte1.getRank().getValue()){
             winTxt = "Gamble verloren";
+            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+        }else{
+            winTxt = "Gamble unentschieden";
             changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
         }
     }
