@@ -19,7 +19,7 @@ import javafx.stage.StageStyle;
  *
  * @author misch
  */
-public class VideoPoker extends Application {
+public class MainApp extends Application {
 
     Stage stage;
 
@@ -55,7 +55,7 @@ public class VideoPoker extends Application {
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -76,7 +76,7 @@ public class VideoPoker extends Application {
             stage.show();
 
         } catch (IOException ex) {
-            Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -91,7 +91,7 @@ public class VideoPoker extends Application {
             stage.setScene(scene);
             stage.show();
         }catch (IOException ex) {
-            Logger.getLogger(VideoPoker.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

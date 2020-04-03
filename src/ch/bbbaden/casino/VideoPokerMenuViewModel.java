@@ -11,7 +11,7 @@ package ch.bbbaden.casino;
  */
 public class VideoPokerMenuViewModel {
     private VideoPokerMenuModel model;
-    private VideoPoker mainApp;
+    private MainApp mainApp;
     public VideoPokerMenuViewModel(VideoPokerMenuModel model) {
         this.model = model;
         
@@ -23,7 +23,7 @@ public class VideoPokerMenuViewModel {
         
     }
 
-    public void setMainApp(VideoPoker mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
     

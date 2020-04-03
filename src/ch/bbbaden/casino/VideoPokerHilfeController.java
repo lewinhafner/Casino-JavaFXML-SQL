@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
  * @author misch
  */
 public class VideoPokerHilfeController implements Initializable {
-    private VideoPoker mainApp;
+    private MainApp mainApp;
     @FXML
     private Label hilfeTxt;
     @FXML
@@ -39,7 +39,7 @@ public class VideoPokerHilfeController implements Initializable {
         
     }    
 
-    public void setMainApp(VideoPoker mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 

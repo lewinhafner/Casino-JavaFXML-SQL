@@ -17,7 +17,7 @@ import javafx.beans.property.StringProperty;
  */
 public class VideoPokerGameViewModel implements PropertyChangeListener{
     private VideoPokerGameModel model;
-    private VideoPoker mainApp;
+    private MainApp mainApp;
     private ArrayList<Card> deck = new ArrayList();
     private StringProperty winTxt = new SimpleStringProperty();
     private StringProperty coinVal = new SimpleStringProperty();
@@ -39,7 +39,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
         return winQuote;
     }
     
-    public void setMainApp(VideoPoker mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 
