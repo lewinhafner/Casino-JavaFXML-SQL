@@ -34,7 +34,6 @@ public class VideoPokerMenuController implements Initializable {
 
     @FXML
     private void startAction(ActionEvent event) {
-        System.out.println("sasd");
         vm.startAction();
     }
 

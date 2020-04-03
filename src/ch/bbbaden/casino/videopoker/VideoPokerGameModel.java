@@ -167,7 +167,10 @@ public class VideoPokerGameModel {
             cardsOnTable.get(i).setVerdeckt(false);
             if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
                 winTxt = "Gamble gewonnen";
+                int winOld = winQuote;
+                winQuote = winQuote *2;
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+                changes.firePropertyChange("win", winOld, winQuote);
             } else if (karte2.getRank().getValue() < karte1.getRank().getValue()) {
                 winTxt = "Gamble verloren";
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
