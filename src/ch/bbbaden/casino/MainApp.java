@@ -5,7 +5,6 @@
  */
 package ch.bbbaden.casino;
 
-import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
