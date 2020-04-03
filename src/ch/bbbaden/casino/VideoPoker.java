@@ -5,7 +5,6 @@
  */
 package ch.bbbaden.casino;
 
-import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +40,7 @@ public class VideoPoker extends Application {
 
     public void showMenu() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerMenu.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerMenuController view = loader.getController();
@@ -62,7 +61,7 @@ public class VideoPoker extends Application {
 
     public void showGame() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerGame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerGame.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerGameController view = loader.getController();
@@ -83,7 +82,7 @@ public class VideoPoker extends Application {
     }
     public void showHilfe() {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerHilfe.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerHilfe.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerHilfeController view = loader.getController();

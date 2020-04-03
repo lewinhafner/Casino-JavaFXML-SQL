@@ -10,7 +10,7 @@
    <children>
       <ImageView fitHeight="418.0" fitWidth="627.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../picture/VPGameBackground.jpg" />
+            <Image url="@../../../picture/VPGameBackground.jpg" />
          </image>
       </ImageView>
       <Button fx:id="gameBtn" layoutX="247.0" layoutY="335.0" mnemonicParsing="false" onAction="#gameAction" text="backToGame" />

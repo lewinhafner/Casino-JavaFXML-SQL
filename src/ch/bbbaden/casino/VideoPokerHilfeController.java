@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bbbaden.casino.videopoker;
+package ch.bbbaden.casino;
 
-import ch.bbbaden.casino.VideoPoker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
