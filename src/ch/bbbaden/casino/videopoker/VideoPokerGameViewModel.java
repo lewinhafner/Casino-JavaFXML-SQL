@@ -97,5 +97,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
     public void hilfe(){
         mainApp.showVideoPokerHilfe();
     }
-    
+    public void goToMenu(){
+        mainApp.showMainMenu();
+    }
 }

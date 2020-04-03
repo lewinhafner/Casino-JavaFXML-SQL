@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 02.04.2020, 14:37:34
+    Created on : 03.04.2020, 13:20:32
     Author     : misch
 */
 
@@ -14,9 +14,6 @@ and open the template in the editor.
 .colorBtn{
     -fx-background-color: rgb(234, 215, 7);
 }
-.hilfeBtn{
-    -fx-background-color: rgb(0, 200, 255);
-}
-.menuBtn{
+.logoutBtn{
     -fx-background-color: rgb(255, 0, 42);
 }

@@ -7,8 +7,10 @@ package ch.bbbaden.casino.mainmenu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
@@ -23,6 +25,16 @@ public class MainMenuController implements Initializable {
     private Label pokerLbl;
     @FXML
     private Label rouletteLbl;
+    @FXML
+    private Button logoutBtn;
+    @FXML
+    private Button kasseBtn;
+    @FXML
+    private Label slotsLbl;
+    @FXML
+    private Label yatziLbl;
+    @FXML
+    private Label blackjackLbl;
     /**
      * Initializes the controller class.
      */
@@ -45,6 +57,26 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void rouletteAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void logoutAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void kasseAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void slotsAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void yatziAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void blackjackAction(MouseEvent event) {
     }
      
 }

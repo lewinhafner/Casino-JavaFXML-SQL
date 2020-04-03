@@ -78,7 +78,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void menuAction(ActionEvent event) {
-        System.exit(0);
+        vm.goToMenu();
     }
     public void setViewModel(VideoPokerGameViewModel vm){
         this.vm = vm;
@@ -185,7 +185,10 @@ public class VideoPokerGameController implements Initializable {
     }
      @FXML
     private void hilfeAction(ActionEvent event) {
-        vm.hilfe();
+        if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
+            vm.hilfe();
+        }
+        
     }
     public void cards(){
         Card karte1 = vm.getCard(0);

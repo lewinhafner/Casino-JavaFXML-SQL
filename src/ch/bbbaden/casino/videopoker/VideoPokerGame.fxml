@@ -18,7 +18,7 @@
       <Button fx:id="menuBtn" layoutX="27.0" layoutY="460.0" mnemonicParsing="false" onAction="#menuAction" prefHeight="47.0" prefWidth="90.0" text="Menu">
          <styleClass>
             <String fx:value="Button" />
-            <String fx:value="colorBtn" />
+            <String fx:value="menuBtn" />
          </styleClass>
          <font>
             <Font name="Impact" size="24.0" />

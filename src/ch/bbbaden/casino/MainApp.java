@@ -29,7 +29,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         this.stage = stage;
-         stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
         showMainMenu();
 
     }

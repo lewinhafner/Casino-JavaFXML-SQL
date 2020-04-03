@@ -28,5 +28,7 @@ public class VideoPokerMenuViewModel {
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
-    
+    public void goToMenu(){
+        mainApp.showMainMenu();
+    }
 }
