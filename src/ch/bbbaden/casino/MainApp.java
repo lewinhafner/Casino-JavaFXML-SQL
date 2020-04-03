@@ -29,7 +29,8 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         this.stage = stage;
-        showVideoPokerMenu();
+         stage.initStyle(StageStyle.UNDECORATED);
+        showMainMenu();
 
     }
 
@@ -50,8 +51,7 @@ public class MainApp extends Application {
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
 
-            final Scene scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
+            final Scene scene = new Scene(root);         
             stage.setScene(scene);
             stage.show();
 
@@ -72,7 +72,6 @@ public class MainApp extends Application {
             view.setViewModel(viewModel);
 
             final Scene scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
 

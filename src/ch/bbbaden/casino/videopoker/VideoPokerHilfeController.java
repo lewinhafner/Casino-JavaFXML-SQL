@@ -35,7 +35,7 @@ public class VideoPokerHilfeController implements Initializable {
         hilfeTxt.setText("1. über den Knopf zwischen den Bet köpfen value des Chipes auswählen" + "\n" + "2. über die Betknöpfe auswählen wie viele Coins gesetzt werdem"
                 + "\n" + "3. Auf deal klicken" + "\n" + "4. Auf die Karten klicken, die man wegwerfen will." +"\n"+ "5. Auf Draw klicken" + 
                 "\n" + "6. wenn gewonnen auf Gamble klicken will, wenn man den Gewinn verwetten will"
-                +"\n"+"7. im Gamblemodus auf eine Karte klicken, die noch nicht aufgedeckt wurde"
+                +"\n"+"7. im Gamblemodus auf eine Karte klicken, die noch nicht aufgedeckt wurde" + "\n"
         );
         
     }    
