@@ -101,7 +101,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void dealAction(ActionEvent event) {
-        if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Können nicht gamblen") ){
+        if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
             canGamble = false;
             vm.spiele();
             cards();
@@ -135,7 +135,7 @@ public class VideoPokerGameController implements Initializable {
     private void card2Action(MouseEvent event) {
         if(gambleMode == false){
             vm.card(1);
-        }else{
+        }else {
             vm.vergleicheCardsGamble(1);
             gambleMode = false;
             cards();

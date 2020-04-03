@@ -94,9 +94,9 @@ public class VideoPokerGameModel {
                 cardsOnTable.add(deck.get(i));
             }
             cards = 4;
-            winQuote = 0;
+            winQuote = -1;
             gewinnUeberpruefung();
-            
+
             ersteRunde = false;
         } else {
             ersteRunde = true;
@@ -132,7 +132,7 @@ public class VideoPokerGameModel {
 
     public void gamble() {
         String oldWinTxt = winTxt;
-        if (winTxt.equals("Gamble verloren") || winTxt.equals("Können nicht gamblen")) {
+        if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren")) {
             winTxt = "Du hast verloren";
             changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
         } else {
@@ -151,27 +151,32 @@ public class VideoPokerGameModel {
     }
 
     public void vergleicheCardsGamble(int i) {
-        String oldWinTxt = winTxt;
+        if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren") || cardsOnTable.get(i).isVerdeckt()==false) {
 
-        Card karte1 = null;
-        Card karte2 = cardsOnTable.get(i);
+        } else {
+            String oldWinTxt = winTxt;
 
-        for (Card card : cardsOnTable) {
-            if (card.isVerdeckt() == false) {
-                karte1 = card;
+            Card karte1 = null;
+            Card karte2 = cardsOnTable.get(i);
+
+            for (Card card : cardsOnTable) {
+                if (card.isVerdeckt() == false) {
+                    karte1 = card;
+                }
+            }
+            cardsOnTable.get(i).setVerdeckt(false);
+            if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
+                winTxt = "Gamble gewonnen";
+                changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+            } else if (karte2.getRank().getValue() < karte1.getRank().getValue()) {
+                winTxt = "Gamble verloren";
+                changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
+            } else {
+                winTxt = "Gamble unentschieden";
+                changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
         }
-        cardsOnTable.get(i).setVerdeckt(false);
-        if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
-            winTxt = "Gamble gewonnen";
-            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
-        } else if(karte2.getRank().getValue() < karte1.getRank().getValue()){
-            winTxt = "Gamble verloren";
-            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
-        }else{
-            winTxt = "Gamble unentschieden";
-            changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
-        }
+
     }
 
     public void gewinnUeberpruefung() {
@@ -206,9 +211,9 @@ public class VideoPokerGameModel {
         } else if (drilling() == true) {
             winQuote = coinAnz * 1;
             changes.firePropertyChange("win", winOld, winQuote);
-        } else{
+        } else {
             winQuote = coinAnz * 0;
-             changes.firePropertyChange("win", winOld, winQuote);
+            changes.firePropertyChange("win", winOld, winQuote);
         }
     }
 
@@ -594,7 +599,7 @@ public class VideoPokerGameModel {
                         if (rankA.get(3) != Rank.TWO) {
                             val++;
                         }
-                        if (val == rankA.get(4).getValue() || rankA.get(4) == Rank.TWO || val == 4 && rankA.get(4) == Rank.ACE || val == 5 && rankA.get(4) == Rank.ACE || val == 3 && rankA.get(4) == Rank.ACE ) {
+                        if (val == rankA.get(4).getValue() || rankA.get(4) == Rank.TWO || val == 4 && rankA.get(4) == Rank.ACE || val == 5 && rankA.get(4) == Rank.ACE || val == 3 && rankA.get(4) == Rank.ACE) {
                             return true;
                         }
                     }
