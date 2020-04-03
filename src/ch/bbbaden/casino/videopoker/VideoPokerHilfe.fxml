@@ -7,20 +7,29 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.videopoker.VideoPokerHilfeController">
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.videopoker.VideoPokerHilfeController">
    <children>
-      <ImageView fitHeight="418.0" fitWidth="627.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="681.0" fitWidth="844.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../picture/VPGameBackground.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="gameBtn" layoutX="247.0" layoutY="335.0" mnemonicParsing="false" onAction="#gameAction" text="backToGame">
+      <Button fx:id="gameBtn" layoutX="341.0" layoutY="493.0" mnemonicParsing="false" onAction="#gameAction" prefHeight="54.0" prefWidth="161.0" text="backToGame">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="startBtn" />
-         </styleClass></Button>
+         </styleClass>
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></Button>
       <Label fx:id="hilfeTxt" layoutX="37.0" layoutY="27.0" textFill="WHITE" />
+      <ImageView fitHeight="170.0" fitWidth="709.0" layoutX="201.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../picture/GewinntafelVideoPoker.png" />
+         </image>
+      </ImageView>
    </children>
    <stylesheets>
       <URL value="@VideoPokerGame.css" />
