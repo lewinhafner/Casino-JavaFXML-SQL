@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bbbaden.casino;
+package ch.bbbaden.casino.videopoker;
+
+import ch.bbbaden.casino.MainApp;
 
 /**
  *
