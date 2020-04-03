@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="560.0" fitWidth="836.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../picture/VPMenuBackground.png" />
+            <Image url="@../../../../picture/VPMenuBackground.png" />
          </image>
       </ImageView>
       <Button fx:id="startBtn" layoutX="609.0" layoutY="447.0" mnemonicParsing="false" onAction="#startAction" prefHeight="55.0" prefWidth="145.0" text="Starten">
