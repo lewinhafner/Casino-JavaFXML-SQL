@@ -5,6 +5,7 @@
  */
 package ch.bbbaden.casino;
 
+import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -37,6 +38,26 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+     public void showMainMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/MainMenu.fxml"));
+            Parent root;
+            root = loader.load();
+            MainMenuController view = loader.getController();
+            MainMenuModel model = new MainMenuModel();
+            MainMenuViewModel viewModel = new MainMenuViewModel(model);
+            viewModel.setMainApp(this);
+            view.setViewModel(viewModel);
+
+            final Scene scene = new Scene(root);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void showVideoPokerMenu() {
