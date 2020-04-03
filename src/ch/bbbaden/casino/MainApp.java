@@ -5,6 +5,7 @@
  */
 package ch.bbbaden.casino;
 
+import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +28,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         this.stage = stage;
-        showMenu();
+        showVideoPokerMenu();
 
     }
 
@@ -38,9 +39,9 @@ public class MainApp extends Application {
         launch(args);
     }
 
-    public void showMenu() {
+    public void showVideoPokerMenu() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerMenuController view = loader.getController();
@@ -59,9 +60,9 @@ public class MainApp extends Application {
         }
     }
 
-    public void showGame() {
+    public void showVideoPokerGame() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerGame.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerGame.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerGameController view = loader.getController();
@@ -80,9 +81,9 @@ public class MainApp extends Application {
         }
 
     }
-    public void showHilfe() {
+    public void showVideoPokerHilfe() {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VideoPokerHilfe.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerHilfe.fxml"));
             Parent root;
             root = loader.load();
             VideoPokerHilfeController view = loader.getController();

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="815.0" stylesheets="@VideoPokerGame.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.VideoPokerGameController">
+<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="815.0" stylesheets="@VideoPokerGame.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.videopoker.VideoPokerGameController">
    <children>
       <ImageView fitHeight="547.0" fitWidth="821.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../picture/VPGameBackground.jpg" />
+            <Image url="@../../../../picture/VPGameBackground.jpg" />
          </image>
       </ImageView>
       <Button fx:id="menuBtn" layoutX="27.0" layoutY="460.0" mnemonicParsing="false" onAction="#menuAction" prefHeight="47.0" prefWidth="90.0" text="Menu">
@@ -39,7 +39,7 @@
          <font>
             <Font name="Impact" size="24.0" />
          </font></Button>
-      <Button fx:id="coinValue" layoutX="325.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="99.0" text="0.25 $">
+      <Button fx:id="coinValue" layoutX="316.0" layoutY="460.0" mnemonicParsing="false" onAction="#coinValueAction" prefHeight="47.0" prefWidth="122.0" text="0.25 $">
          <styleClass>
             <String fx:value="Button" />
             <String fx:value="colorBtn" />

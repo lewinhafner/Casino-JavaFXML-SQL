@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.bbbaden.casino;
+package ch.bbbaden.casino.videopoker;
 
+import ch.bbbaden.casino.MainApp;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
         model.vergleicheCardsGamble(i);
     }
     public void hilfe(){
-        mainApp.showHilfe();
+        mainApp.showVideoPokerHilfe();
     }
     
 }
