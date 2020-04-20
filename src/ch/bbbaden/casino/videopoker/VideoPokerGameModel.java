@@ -32,6 +32,8 @@ public class VideoPokerGameModel {
     private double balance;
     private boolean canGamble = false;
     private double gesetzt;
+    private double multiplicator = 0;
+    
     public VideoPokerGameModel(User user) {
         this.user = user;
         balance = user.getBalance();
@@ -142,7 +144,7 @@ public class VideoPokerGameModel {
             if (winQuote > 0) {
                 winTxt = "Win";
                 double oldBalance = balance;
-                balance  += gesetzt + gesetzt * winQuote; 
+                balance  += gesetzt + gesetzt * multiplicator; 
                 user.setBalance(balance);
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
@@ -221,35 +223,46 @@ public class VideoPokerGameModel {
         int winOld = winQuote;
         if (natural_royal_flush() == true) {
             winQuote = coinAnz * 800;
+            multiplicator = 800;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (vier_deuces() == true) {
             winQuote = coinAnz * 200;
+            multiplicator = 200;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (wild_royal_flush() == true) {
             winQuote = coinAnz * 25;
+            multiplicator = 25;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (funfGleiche() == true) {
             winQuote = coinAnz * 15;
+            multiplicator = 15;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (straightFlush() == true) {
             winQuote = coinAnz * 9;
+            multiplicator = 9;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (vierling() == true) {
             winQuote = coinAnz * 5;
+            multiplicator = 5;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (fullHouse() == true) {
             winQuote = coinAnz * 3;
+            multiplicator = 3;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (flush() == true) {
             winQuote = coinAnz * 2;
+            multiplicator = 2;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (straight() == true) {
             winQuote = coinAnz * 2;
+            multiplicator = 2;
             changes.firePropertyChange("win", winOld, winQuote);
         } else if (drilling() == true) {
             winQuote = coinAnz * 1;
+            multiplicator = 1;
             changes.firePropertyChange("win", winOld, winQuote);
         } else {
+            multiplicator = 0;
             winQuote = coinAnz * 0;
             changes.firePropertyChange("win", winOld, winQuote);
         }
