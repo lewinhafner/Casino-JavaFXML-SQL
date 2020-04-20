@@ -46,7 +46,9 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showLogin(){
         mainApp.showLogin();
     }
-
+    public void showKasse(){
+        mainApp.showKasse();
+    }
     public StringProperty getBalance() {
         return balance;
     }

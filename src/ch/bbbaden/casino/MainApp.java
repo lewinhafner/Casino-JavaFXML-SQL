@@ -102,7 +102,23 @@ public class MainApp extends Application {
         }
        
      }
-     
+      public void showKasse(){
+         
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/Kasse.fxml"));
+            Parent root;
+            root = loader.load();
+            KasseController view = loader.getController();
+            view.setMainApp(this);
+            view.setUser(user);
+            final Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+     }
     public void showVideoPokerMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));

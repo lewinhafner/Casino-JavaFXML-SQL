@@ -71,6 +71,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void kasseAction(ActionEvent event) {
+        vm.showKasse();
     }
 
     @FXML

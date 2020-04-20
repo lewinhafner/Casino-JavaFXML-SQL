@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.mainmenu.KasseController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="604.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../picture/Background.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="248.0" layoutY="41.0" text="Kasse" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="einzahlungTxt" layoutX="207.0" layoutY="169.0" />
+      <Button fx:id="einzahlenBtn" layoutX="365.0" layoutY="285.0" mnemonicParsing="false" onAction="#einzahlenAction" prefHeight="60.0" prefWidth="142.0" text="Einzahlen">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="Button" />
+            <String fx:value="colorBtn" />
+         </styleClass></Button>
+      <Button fx:id="closeBtn" layoutX="114.0" layoutY="285.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="60.0" prefWidth="142.0" text="Abbrechen">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+         <styleClass>
+            <String fx:value="Button" />
+            <String fx:value="logoutBtn" />
+         </styleClass></Button>
+   </children>
+</AnchorPane>
