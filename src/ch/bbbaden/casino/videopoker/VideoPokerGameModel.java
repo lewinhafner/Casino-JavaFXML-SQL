@@ -5,6 +5,7 @@
  */
 package ch.bbbaden.casino.videopoker;
 
+import ch.bbbaden.casino.User;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -27,11 +28,17 @@ public class VideoPokerGameModel {
     private int coinAnz = 1;
     private double coinVal = 0.25;
     private boolean ersteRunde = true;
+    private User user;
 
+    public VideoPokerGameModel(User user) {
+        this.user = user;
+    }
+    
+    
     public void AddPropertyChangeListener(final PropertyChangeListener listener) {
         changes.addPropertyChangeListener(listener);
     }
-
+    
     public void generateCards() {
         deck.removeAll(deck);
         for (Color color : Color.values()) {

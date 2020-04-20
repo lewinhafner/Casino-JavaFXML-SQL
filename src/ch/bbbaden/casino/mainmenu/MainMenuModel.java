@@ -15,6 +15,7 @@ import java.beans.PropertyChangeSupport;
 public class MainMenuModel {
     private final PropertyChangeSupport changes = new PropertyChangeSupport(this);
     
+    
     public void AddPropertyChangeListener(final PropertyChangeListener listener) {
         changes.addPropertyChangeListener(listener);
     }

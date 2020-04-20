@@ -6,8 +6,11 @@
 package ch.bbbaden.casino.mainmenu;
 
 import ch.bbbaden.casino.MainApp;
+import ch.bbbaden.casino.User;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -16,9 +19,13 @@ import java.beans.PropertyChangeListener;
 public class MainMenuViewModel implements PropertyChangeListener{
     private MainMenuModel model;
     private MainApp mainApp;
-
-    public MainMenuViewModel(MainMenuModel model) {
+    private User user;
+     private StringProperty balance = new SimpleStringProperty();
+    
+    public MainMenuViewModel(MainMenuModel model, User user) {
         this.model = model;
+        this.user = user;
+       balance.setValue(Double.toString(user.getBalance()));
     }
 
     
@@ -35,5 +42,10 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showPoker(){
         mainApp.showVideoPokerMenu();
     }
+
+    public StringProperty getBalance() {
+        return balance;
+    }
     
+   
 }

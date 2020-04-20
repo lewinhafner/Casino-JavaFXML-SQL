@@ -37,5 +37,6 @@
       <Label fx:id="slotsLbl" layoutX="137.0" layoutY="78.0" onMouseClicked="#slotsAction" prefHeight="130.0" prefWidth="217.0" />
       <Label fx:id="yatziLbl" layoutX="469.0" layoutY="82.0" onMouseClicked="#yatziAction" prefHeight="121.0" prefWidth="238.0" />
       <Label fx:id="blackjackLbl" layoutX="489.0" layoutY="340.0" onMouseClicked="#blackjackAction" prefHeight="121.0" prefWidth="198.0" />
+      <Label fx:id="kontoUserlbl" layoutX="167.0" layoutY="33.0" textFill="WHITE" />
    </children>
 </AnchorPane>

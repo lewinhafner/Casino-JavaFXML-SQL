@@ -24,10 +24,10 @@ import javafx.stage.StageStyle;
 public class MainApp extends Application {
 
     Stage stage;
-
+    User user = new User(1,1000000);
     @Override
     public void start(Stage stage) throws Exception {
-
+       
         this.stage = stage;
         stage.initStyle(StageStyle.UNDECORATED);
         showMainMenu();
@@ -45,12 +45,12 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/MainMenu.fxml"));
             Parent root;
             root = loader.load();
-            MainMenuController view = loader.getController();
+             MainMenuController view = loader.getController();
             MainMenuModel model = new MainMenuModel();
-            MainMenuViewModel viewModel = new MainMenuViewModel(model);
+            MainMenuViewModel viewModel = new MainMenuViewModel(model, user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
-
+            view.bind();
             final Scene scene = new Scene(root);         
             stage.setScene(scene);
             stage.show();
@@ -67,10 +67,10 @@ public class MainApp extends Application {
             root = loader.load();
             VideoPokerMenuController view = loader.getController();
             VideoPokerMenuModel model = new VideoPokerMenuModel();
-            VideoPokerMenuViewModel viewModel = new VideoPokerMenuViewModel(model);
+            VideoPokerMenuViewModel viewModel = new VideoPokerMenuViewModel(model, user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
-
+            view.bind();
             final Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -86,7 +86,7 @@ public class MainApp extends Application {
             Parent root;
             root = loader.load();
             VideoPokerGameController view = loader.getController();
-            VideoPokerGameModel model = new VideoPokerGameModel();
+            VideoPokerGameModel model = new VideoPokerGameModel(user);
             VideoPokerGameViewModel viewModel = new VideoPokerGameViewModel(model);
             viewModel.setMainApp(this);
             model.AddPropertyChangeListener(viewModel);

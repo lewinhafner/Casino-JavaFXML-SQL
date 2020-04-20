@@ -26,6 +26,8 @@ public class VideoPokerMenuController implements Initializable {
     private Button menuBtn;
     @FXML
     private Label kontoLbl;
+    @FXML
+    private Label kontoUserlbl;
 
     /**
      * Initializes the controller class.
@@ -50,7 +52,7 @@ public class VideoPokerMenuController implements Initializable {
         this.vm = vm;
     }
     public void bind() {
-        
+         kontoUserlbl.textProperty().bind(vm.getBalance());
     }
 
     

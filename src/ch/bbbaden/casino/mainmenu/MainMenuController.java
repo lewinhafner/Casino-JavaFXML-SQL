@@ -35,15 +35,20 @@ public class MainMenuController implements Initializable {
     private Label yatziLbl;
     @FXML
     private Label blackjackLbl;
+    @FXML
+    private Label kontoUserlbl;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
+//     kontoUserlbl.setText(Double.toString(vm.getBalance()));
+        
     }    
      public void bind(){
-        
+        kontoUserlbl.textProperty().bind(vm.getBalance());
     }
 
     public void setViewModel(MainMenuViewModel vm) {

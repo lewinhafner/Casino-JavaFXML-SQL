@@ -6,6 +6,9 @@
 package ch.bbbaden.casino.videopoker;
 
 import ch.bbbaden.casino.MainApp;
+import ch.bbbaden.casino.User;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -14,9 +17,12 @@ import ch.bbbaden.casino.MainApp;
 public class VideoPokerMenuViewModel {
     private VideoPokerMenuModel model;
     private MainApp mainApp;
-    public VideoPokerMenuViewModel(VideoPokerMenuModel model) {
+    private User user;
+     private StringProperty balance = new SimpleStringProperty();
+    public VideoPokerMenuViewModel(VideoPokerMenuModel model, User user) {
         this.model = model;
-        
+        this.user = user;
+        balance.setValue(Double.toString(user.getBalance()));
     }
     
     public void startAction(){
@@ -31,4 +37,9 @@ public class VideoPokerMenuViewModel {
     public void goToMenu(){
         mainApp.showMainMenu();
     }
+
+    public StringProperty getBalance() {
+        return balance;
+    }
+    
 }
