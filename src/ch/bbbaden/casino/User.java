@@ -16,14 +16,39 @@ import java.util.logging.Logger;
  */
 public class User {
     private final int id;
+    private String username;
+    private String forename;
+    private String surname;
+    private String password;
     private double balance;
+    private String email;
+    private String role;
+    private int age;
     Query q = new Query();
 
-    public User(int id,double balance) {
+    public User(int id, String username, String forename, String surname, String password, double balance, String email, String role, int age) {
         this.id = id;
+        this.username = username;
+        this.forename = forename;
+        this.surname = surname;
+        this.password = password;
         this.balance = balance;
+        this.email = email;
+        this.role = role;
+        this.age = age;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    
+
+   
     public int getId() {
         return id;
     }

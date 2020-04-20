@@ -42,6 +42,10 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showPoker(){
         mainApp.showVideoPokerMenu();
     }
+    
+    public void showLogin(){
+        mainApp.showLogin();
+    }
 
     public StringProperty getBalance() {
         return balance;

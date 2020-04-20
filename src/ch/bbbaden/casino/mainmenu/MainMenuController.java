@@ -66,6 +66,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void logoutAction(ActionEvent event) {
+        vm.showLogin();
     }
 
     @FXML

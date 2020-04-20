@@ -6,6 +6,8 @@
 package ch.bbbaden.casino;
 
 
+import ch.bbbaden.casino.login.LoginController;
+import ch.bbbaden.casino.login.SignUpController;
 import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
@@ -25,13 +27,15 @@ import javafx.stage.StageStyle;
 public class MainApp extends Application {
 
     Stage stage;
-    User user = new User(1,1000000);
+    User user;
     @Override
     public void start(Stage stage) throws Exception {
        
+    
        this.stage = stage;
        stage.initStyle(StageStyle.UNDECORATED);
-       showMainMenu();
+       //showMainMenu();
+       showLogin();
 
     }
 
@@ -41,6 +45,11 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
      public void showMainMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/MainMenu.fxml"));
@@ -60,7 +69,40 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+     public void showLogin(){
+         
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("login/Login.fxml"));
+            Parent root;
+            root = loader.load();
+            LoginController view = loader.getController();
+            view.setMainApp(this);
+            final Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+     }
+     public void showSignUp(){
+         
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("login/SignUp.fxml"));
+            Parent root;
+            root = loader.load();
+            SignUpController view = loader.getController();
+            view.setMainApp(this);
+            final Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+     }
+     
     public void showVideoPokerMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));
