@@ -52,4 +52,13 @@ public class Query {
        jdbc.closeConnection();
        ausgabe();
     }
+    public void updateStatistics(int uId, int gId,double bet,String result,double changes) throws SQLException, ClassNotFoundException{
+        String query = "Insert Into statistics (`usersId`,`gameId`,`bet`, `results`,`changes`) values('"+ uId+"','"+gId+"','"+bet+"','"+result+"','"+changes+"')";
+        Connection conn = jdbc.createConnection();
+        Statement stmt = conn.createStatement();
+        stmt.execute(query);
+        stmt.close();
+        conn.close();
+        jdbc.closeConnection();
+    }
 }

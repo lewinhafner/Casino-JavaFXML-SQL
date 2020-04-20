@@ -33,6 +33,8 @@ public class VideoPokerGameModel {
     private boolean canGamble = false;
     private double gesetzt;
     private double multiplicator = 0;
+    private double gewonnen = 0;
+    
     
     public VideoPokerGameModel(User user) {
         this.user = user;
@@ -143,13 +145,16 @@ public class VideoPokerGameModel {
             String oldWinTxt = winTxt;
             if (winQuote > 0) {
                 winTxt = "Win";
+                gewonnen = gesetzt * multiplicator;
                 double oldBalance = balance;
                 balance  += gesetzt + gesetzt * multiplicator; 
                 user.setBalance(balance);
+                user.updateStatistics(4, gesetzt, winTxt, gesetzt*multiplicator);
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
                 winTxt = "GameOver";
+                user.updateStatistics(4, gesetzt, "Loose", gesetzt * (-1));
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
         }
@@ -197,8 +202,9 @@ public class VideoPokerGameModel {
                 winQuote = winQuote *2;
                 canGamble = false;
                 double oldBalance = balance;
-                balance += gesetzt; 
+                balance += gewonnen; 
                 user.setBalance(balance);
+                user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
                 changes.firePropertyChange("win", winOld, winQuote);
@@ -206,13 +212,15 @@ public class VideoPokerGameModel {
                 winTxt = "Gamble verloren";
                 canGamble = false;
                 double oldBalance = balance;
-                balance -= gesetzt; 
+                balance -= gewonnen; 
                 user.setBalance(balance);
+                user.updateStatistics(4, gewonnen, "Loose gamble", gewonnen*(-1));
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
                 winTxt = "Gamble unentschieden";
                 canGamble = false;
+                user.updateStatistics(4, gewonnen, "Draw gamble", 0);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
         }

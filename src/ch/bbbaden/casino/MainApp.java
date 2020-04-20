@@ -5,6 +5,7 @@
  */
 package ch.bbbaden.casino;
 
+
 import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
 import java.io.IOException;
@@ -28,9 +29,9 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        
-        this.stage = stage;
-        stage.initStyle(StageStyle.UNDECORATED);
-        showMainMenu();
+       this.stage = stage;
+       stage.initStyle(StageStyle.UNDECORATED);
+       showMainMenu();
 
     }
 
