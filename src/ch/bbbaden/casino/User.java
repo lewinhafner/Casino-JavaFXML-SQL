@@ -5,6 +5,11 @@
  */
 package ch.bbbaden.casino;
 
+import Datenbank.Query;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author misch
@@ -12,7 +17,7 @@ package ch.bbbaden.casino;
 public class User {
     private final int id;
     private double balance;
-    
+    Query q = new Query();
 
     public User(int id,double balance) {
         this.id = id;
@@ -29,6 +34,14 @@ public class User {
 
     public void setBalance(double balance) {
         this.balance = balance;
+        try {
+            q.updateBalance(id, balance);
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    
     
 }

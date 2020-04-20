@@ -58,6 +58,8 @@ public class VideoPokerGameController implements Initializable {
     private Button gambleBtn;
     @FXML
     private Button hilfeBtn;
+    @FXML
+    private Label balancelbl;
     
 
     /**
@@ -74,6 +76,7 @@ public class VideoPokerGameController implements Initializable {
         coinValue.textProperty().bind(vm.getCoinVal());
         winLbl.textProperty().bind(vm.getWinQuote());
         winTxtLbl.textProperty().bind(vm.getWinTxt());
+        balancelbl.textProperty().bind(vm.getBalance());
     }
 
     @FXML

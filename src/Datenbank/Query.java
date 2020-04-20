@@ -42,12 +42,14 @@ public class Query {
         stmt.close();
         jdbc.closeConnection();
     }
-    public void updateBalance(int id, int betrag, int konto) throws SQLException, ClassNotFoundException{
-       String query = "Update users SET balance" + konto + betrag+"WHERE idU = "+ id; 
+    public void updateBalance(int id, double konto) throws SQLException, ClassNotFoundException{
+       String query = "Update users SET balance = " + konto +"WHERE idU = "+ id; 
        Connection conn = jdbc.createConnection();
        Statement stmt = conn.createStatement();
        stmt.execute(query);
        stmt.close();
        conn.close();
+       jdbc.closeConnection();
+       ausgabe();
     }
 }

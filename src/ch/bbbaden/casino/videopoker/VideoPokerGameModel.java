@@ -29,9 +29,12 @@ public class VideoPokerGameModel {
     private double coinVal = 0.25;
     private boolean ersteRunde = true;
     private User user;
-
+    private double balance;
+    private boolean canGamble = false;
+    private double gesetzt;
     public VideoPokerGameModel(User user) {
         this.user = user;
+        balance = user.getBalance();
     }
     
     
@@ -49,8 +52,12 @@ public class VideoPokerGameModel {
         Collections.shuffle(deck);
     }
 
+    public double getBalance() {
+        return balance;
+    }
+    
     public void coinAnzBet1() {
-        if (ersteRunde == true) {
+        if (ersteRunde == true && canGamble == false) {
             int oldCoin = coinAnz;
             if (coinAnz == 5) {
                 coinAnz = 1;
@@ -62,7 +69,7 @@ public class VideoPokerGameModel {
     }
 
     public void coinAnzBet5() {
-        if (ersteRunde == true) {
+        if (ersteRunde == true&& canGamble == false) {
             int oldCoin = coinAnz;
             coinAnz = 5;
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
@@ -70,7 +77,7 @@ public class VideoPokerGameModel {
     }
 
     public void setCoinVal() {
-        if (ersteRunde == true) {
+        if (ersteRunde == true && canGamble == false) {
             double oldValue = coinVal;
             if (coinVal == 0.25) {
                 coinVal = 0.5;
@@ -95,6 +102,11 @@ public class VideoPokerGameModel {
 
     public void deal() {
         if (ersteRunde == true) {
+            gesetzt = coinAnz * coinVal;
+            double oldBalance = balance;
+            balance = balance - coinAnz*coinVal;
+            changes.firePropertyChange("balanceUpdate", oldBalance, balance);
+            user.setBalance(balance);
             generateCards();
             cardsOnTable.removeAll(cardsOnTable);
             for (int i = 0; i < 5; i++) {
@@ -129,6 +141,10 @@ public class VideoPokerGameModel {
             String oldWinTxt = winTxt;
             if (winQuote > 0) {
                 winTxt = "Win";
+                double oldBalance = balance;
+                balance  += gesetzt + gesetzt * winQuote; 
+                user.setBalance(balance);
+                changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
                 winTxt = "GameOver";
@@ -143,6 +159,7 @@ public class VideoPokerGameModel {
             winTxt = "Du hast verloren";
             changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
         } else {
+            canGamble = true;
             generateCards();
             cardsOnTable.removeAll(cardsOnTable);
             for (int i = 0; i < 5; i++) {
@@ -176,13 +193,24 @@ public class VideoPokerGameModel {
                 winTxt = "Gamble gewonnen";
                 int winOld = winQuote;
                 winQuote = winQuote *2;
+                canGamble = false;
+                double oldBalance = balance;
+                balance += gesetzt; 
+                user.setBalance(balance);
+                changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
                 changes.firePropertyChange("win", winOld, winQuote);
             } else if (karte2.getRank().getValue() < karte1.getRank().getValue()) {
                 winTxt = "Gamble verloren";
+                canGamble = false;
+                double oldBalance = balance;
+                balance -= gesetzt; 
+                user.setBalance(balance);
+                changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
                 winTxt = "Gamble unentschieden";
+                canGamble = false;
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             }
         }
