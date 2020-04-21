@@ -34,6 +34,8 @@ public class VideoPokerGameModel {
     private double gesetzt;
     private double multiplicator = 0;
     private double gewonnen = 0;
+   
+
     
     
     public VideoPokerGameModel(User user) {
@@ -152,7 +154,7 @@ public class VideoPokerGameModel {
             //Text updates und Geld update des Spielers
             if (winQuote > 0) {
                 winTxt = "Win";
-                gewonnen = gesetzt * multiplicator;
+                gewonnen = gesetzt + gesetzt * multiplicator;
                 double oldBalance = balance;
                 balance  += gesetzt + gesetzt * multiplicator; 
                 user.setBalance(balance);
@@ -211,9 +213,9 @@ public class VideoPokerGameModel {
                 winQuote = winQuote *2;
                 canGamble = false;
                 double oldBalance = balance;
-                gewonnen *= 2;
-                balance += gewonnen; 
+                 balance += gewonnen; 
                 user.setBalance(balance);
+                gewonnen *= 2;
                 user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
