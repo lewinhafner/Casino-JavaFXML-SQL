@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21.04.2020, 08:04:50
+    Author     : misch
+*/
+.Button{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,100), 10, 0.0,0,1);
+}
+.colorBtn{
+    -fx-background-color: rgb(234, 215, 7);
+}
+.logoutBtn{
+    -fx-background-color: rgb(255, 0, 42);
+}
