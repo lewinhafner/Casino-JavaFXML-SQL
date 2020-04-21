@@ -48,6 +48,7 @@ public class VideoPokerGameViewModel implements PropertyChangeListener{
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        //verbindung mit dem Model
         if(evt.getPropertyName().equals("Bet")){
             coinAnz.set(evt.getNewValue().toString());
         }else if(evt.getPropertyName().equals("updateCoin")){

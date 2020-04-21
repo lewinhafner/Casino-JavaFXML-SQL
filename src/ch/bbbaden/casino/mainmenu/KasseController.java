@@ -43,6 +43,7 @@ public class KasseController implements Initializable {
 
     @FXML
     private void einzahlenAction(ActionEvent event) {
+        //Einzahlung wird getätigt, überprüft ob Zahl eingegeben
         try {
             double einzahlung = Double.parseDouble(einzahlungTxt.getText());
             user.setBalance(user.getBalance() + einzahlung);

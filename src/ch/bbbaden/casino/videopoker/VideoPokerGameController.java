@@ -119,6 +119,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void dealAction(ActionEvent event) {
+        //Erste Runde wird gestartet
         if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
             canGamble = false;
             vm.spiele();
@@ -127,6 +128,7 @@ public class VideoPokerGameController implements Initializable {
             dealBtn.setText("Draw");
             gambleMode = false;
         }else if (gambleMode == false){
+            //Zweite Runde
             weg1.setVisible(false);
             weg2.setVisible(false);
             weg3.setVisible(false);
@@ -145,6 +147,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void card1Action(MouseEvent event) {
+        //Card wegtun
         if(gambleMode == false){
             vm.card(0);
             if(vm.getCard(0).getHold() == false){
@@ -153,6 +156,7 @@ public class VideoPokerGameController implements Initializable {
                 weg1.setVisible(false);
             }
         }else{
+            //Card umkehren beim Gamblen
             vm.vergleicheCardsGamble(0);
             gambleMode = false;
             cards();
@@ -161,6 +165,7 @@ public class VideoPokerGameController implements Initializable {
     }
      @FXML
     private void card2Action(MouseEvent event) {
+        //Card wegtun
         if(gambleMode == false){
             vm.card(1);
             if(vm.getCard(1).getHold() == false){
@@ -169,6 +174,7 @@ public class VideoPokerGameController implements Initializable {
                 weg2.setVisible(false);
             }
         }else {
+            //Card umkehren beim Gamblen
             vm.vergleicheCardsGamble(1);
             gambleMode = false;
             cards();
@@ -178,6 +184,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void card3Action(MouseEvent event) {
+        //Card wegtun
         if(gambleMode == false){
             vm.card(2);
             if(vm.getCard(2).getHold() == false){
@@ -186,6 +193,7 @@ public class VideoPokerGameController implements Initializable {
                 weg3.setVisible(false);
             }
         }else{
+            //Card umkehren beim Gamblen
             vm.vergleicheCardsGamble(2);
             gambleMode = false;
             cards();
@@ -194,6 +202,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void card4Action(MouseEvent event) {
+        //Card wegtun
          if(gambleMode == false){
             vm.card(3);
             if(vm.getCard(3).getHold() == false){
@@ -202,6 +211,7 @@ public class VideoPokerGameController implements Initializable {
                 weg4.setVisible(false);
             }
         }else{
+            //Card umkehren beim Gamblen
             vm.vergleicheCardsGamble(3);
             gambleMode = false;
              cards();
@@ -210,6 +220,7 @@ public class VideoPokerGameController implements Initializable {
 
     @FXML
     private void card5Action(MouseEvent event) {
+        //Card wegtun
         if(gambleMode == false){
             vm.card(4);
             if(vm.getCard(4).getHold() == false){
@@ -218,6 +229,7 @@ public class VideoPokerGameController implements Initializable {
                 weg5.setVisible(false);
             }
         }else{
+            //Card umkehren beim Gamblen
             vm.vergleicheCardsGamble(4);
             gambleMode = false;
              cards();
@@ -225,6 +237,7 @@ public class VideoPokerGameController implements Initializable {
     }
     @FXML
     private void gambleAction(ActionEvent event) {
+        //gamblen
         if(canGamble == true && gambleMode == false){
             vm.gamble();
             gambleMode = true;
@@ -233,12 +246,14 @@ public class VideoPokerGameController implements Initializable {
     }
      @FXML
     private void hilfeAction(ActionEvent event) {
+        //hilfe wechseln
         if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
             vm.hilfe();
         }
         
     }
     public void cards(){
+        //Karten anzeigen lassen
         Card karte1 = vm.getCard(0);
         card1.setText("");
         card1.setGraphic(new ImageView(showCard(karte1.getColor(),karte1.getRank(),karte1)));
@@ -256,6 +271,7 @@ public class VideoPokerGameController implements Initializable {
         card5.setGraphic(new ImageView(showCard(karte5.getColor(),karte5.getRank(),karte5)));
     }
     public String showCard(Color color, Rank rank, Card card){
+        //Wie die Karten aussehen
         if(card.isVerdeckt() == true){
             return "cards/purple_back.png";
         }

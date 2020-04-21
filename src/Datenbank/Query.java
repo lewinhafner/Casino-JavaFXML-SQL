@@ -37,7 +37,7 @@ public class Query {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("Select * from users");
         
-        //while theres a new set with id, name, email and password it will be set into the variable
+        //User array wir gebildet, dass man nachher mit dem arbeiten kann
         while(rs.next()){
             id = rs.getInt(1);
             username = rs.getString(2);
@@ -58,6 +58,7 @@ public class Query {
     }
    
     public void updateBalance(int id, double konto) throws SQLException, ClassNotFoundException{
+        //balance vom spieler wird upgadetet
        String query = "Update users SET balance = " + konto +"WHERE idU = "+ id; 
        Connection conn = jdbc.createConnection();
        Statement stmt = conn.createStatement();
@@ -67,6 +68,7 @@ public class Query {
        jdbc.closeConnection();
     }
     public void updateStatistics(int uId, int gId,double bet,String result,double changes) throws SQLException, ClassNotFoundException{
+        //Statistcs wird upgedated
         String query = "Insert Into statistics (`usersId`,`gameId`,`bet`, `results`,`changes`) values('"+ uId+"','"+gId+"','"+bet+"','"+result+"','"+changes+"')";
         Connection conn = jdbc.createConnection();
         Statement stmt = conn.createStatement();
@@ -77,6 +79,7 @@ public class Query {
     }
     
     public void createUser (String username, String forename,String surname,String password,String email,int age) throws SQLException, ClassNotFoundException{
+        //User erstellen
         String query = "Insert Into users (`username`,`forename`,`surname`, `password`,`email`,`balance`,`age`, `role`) values"
                 + "('"+ username+"','"+forename+"','"+surname+"','"+password+"','"+email+"','"+0+"','"+age+"','player')";
         Connection conn = jdbc.createConnection();
@@ -91,6 +94,7 @@ public class Query {
         return users;
     }
     public ArrayList<String> getUsersStats(String user) throws SQLException, ClassNotFoundException{
+        //Stats der Spieler für die Adminsicht ausgeben
         ArrayList<String> ausgabe = new ArrayList<>();
         String query = "Select g.gameName, s.bet, s.results, s.changes from statistics s, game g, users u where idG = gameID AND usersID = idU AND username = '"+user+"'";
         Connection conn = jdbc.createConnection();
@@ -110,6 +114,7 @@ public class Query {
         return ausgabe;
     }
     public ArrayList<String> getSpielStats(String game) throws SQLException, ClassNotFoundException{
+        //Stats des Spiels für die Adminsicht ausgeben
          ArrayList<String> ausgabe = new ArrayList<>();
         String query = "Select u.username, s.bet, s.results, s.changes from statistics s, game g, users u where idG = gameID AND usersID = idU AND gameName = '"+game+"'";
         Connection conn = jdbc.createConnection();

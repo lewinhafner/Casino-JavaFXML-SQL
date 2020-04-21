@@ -19,7 +19,7 @@ import java.util.Random;
 public class VideoPokerGameModel {
 
     protected final PropertyChangeSupport changes = new PropertyChangeSupport(this);
-    //Spiel
+    //initialisierung von Variablen
     private ArrayList<Card> deck = new ArrayList<>();
     private ArrayList<Card> cardsOnTable = new ArrayList<>();
     private int cards;
@@ -47,6 +47,7 @@ public class VideoPokerGameModel {
     }
     
     public void generateCards() {
+        //Kartendeck generieren
         deck.removeAll(deck);
         for (Color color : Color.values()) {
             for (Rank rank : Rank.values()) {
@@ -61,6 +62,7 @@ public class VideoPokerGameModel {
     }
     
     public void coinAnzBet1() {
+        //1 coin wetten
         if (ersteRunde == true && canGamble == false) {
             int oldCoin = coinAnz;
             if (coinAnz == 5) {
@@ -73,6 +75,7 @@ public class VideoPokerGameModel {
     }
 
     public void coinAnzBet5() {
+         //5 coins wetten
         if (ersteRunde == true&& canGamble == false) {
             int oldCoin = coinAnz;
             coinAnz = 5;
@@ -81,6 +84,7 @@ public class VideoPokerGameModel {
     }
 
     public void setCoinVal() {
+         //Einsetzen wie viel ein Coin Wert ist
         if (ersteRunde == true && canGamble == false) {
             double oldValue = coinVal;
             if (coinVal == 0.25) {
@@ -106,6 +110,7 @@ public class VideoPokerGameModel {
 
     public void deal() {
         if (ersteRunde == true) {
+            //erste Runde
             gesetzt = coinAnz * coinVal;
             double oldBalance = balance;
             balance = balance - coinAnz*coinVal;
@@ -122,6 +127,7 @@ public class VideoPokerGameModel {
 
             ersteRunde = false;
         } else {
+            //zweite Runde
             ersteRunde = true;
             ArrayList<Integer> intRemove = new ArrayList<>();
             int anz = 0;
@@ -143,6 +149,7 @@ public class VideoPokerGameModel {
             }
             gewinnUeberpruefung();
             String oldWinTxt = winTxt;
+            //Text updates und Geld update des Spielers
             if (winQuote > 0) {
                 winTxt = "Win";
                 gewonnen = gesetzt * multiplicator;
@@ -161,6 +168,7 @@ public class VideoPokerGameModel {
     }
 
     public void gamble() {
+        //Gamble starten eine karten offen 4 gedeckt
         String oldWinTxt = winTxt;
         if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren")) {
             winTxt = "Du hast verloren";
@@ -182,6 +190,7 @@ public class VideoPokerGameModel {
     }
 
     public void vergleicheCardsGamble(int i) {
+        //Gemacht wenn man Karte umdreht
         if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren") || cardsOnTable.get(i).isVerdeckt()==false) {
 
         } else {
@@ -228,7 +237,7 @@ public class VideoPokerGameModel {
     }
 
     public void gewinnUeberpruefung() {
-        
+        //Start der Überprüfung des gewinnes, Zeigt an wie viel man gewonnen hat(Quote)
         int winOld = winQuote;
         if (natural_royal_flush() == true) {
             winQuote = coinAnz * 800;
@@ -278,6 +287,7 @@ public class VideoPokerGameModel {
     }
 
     public void card1Hold(int i) {
+        //Karten von Hold zu nicht hold wecheseln oder umgekehrt wen Karte geklickt wurde
         if (cardsOnTable.get(i).getHold() == true) {
             cardsOnTable.get(i).setHold(false);
         } else {
@@ -288,7 +298,7 @@ public class VideoPokerGameModel {
     public ArrayList<Card> getCardsOnTable() {
         return cardsOnTable;
     }
-
+    //Alle Gewinn Sachen werden überprüft ab hier
     private boolean natural_royal_flush() {
         ArrayList<Rank> rankA = new ArrayList<>();
         ArrayList<Color> color = new ArrayList<>();

@@ -126,6 +126,7 @@ public class AdminController implements Initializable {
 
     @FXML
     private void spielAction(ActionEvent event) {
+        //SpielerLv wird aktualisiert was in der Combobox steht
         try {
             spielLv.getItems().clear();
             ArrayList<String> items = q.getSpielStats(spielCb.getValue());
