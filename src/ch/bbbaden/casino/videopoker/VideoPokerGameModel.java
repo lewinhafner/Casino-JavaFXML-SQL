@@ -228,6 +228,7 @@ public class VideoPokerGameModel {
     }
 
     public void gewinnUeberpruefung() {
+        
         int winOld = winQuote;
         if (natural_royal_flush() == true) {
             winQuote = coinAnz * 800;
@@ -527,6 +528,7 @@ public class VideoPokerGameModel {
             rankA.add(card.getRank());
         }
         Rank rank1 = null;
+        Collections.sort(rankA);
         if (rankA.get(0) != Rank.TWO) {
             rank1 = rankA.get(0);
         } else if (rankA.get(1) != Rank.TWO) {
@@ -629,6 +631,7 @@ public class VideoPokerGameModel {
         }
 
         Collections.sort(rankA);
+       
         Rank rank1 = null;
         if (rankA.get(0) != Rank.TWO) {
             rank1 = rankA.get(0);
@@ -674,6 +677,7 @@ public class VideoPokerGameModel {
         for (Card card : cardsOnTable) {
             rankA.add(card.getRank());
         }
+        Collections.sort(rankA);
         Rank rank1 = null;
         if (rankA.get(0) != Rank.TWO) {
             rank1 = rankA.get(0);
