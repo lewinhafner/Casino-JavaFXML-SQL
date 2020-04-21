@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -26,11 +27,10 @@ import javafx.scene.control.TextField;
  * @author misch
  */
 public class SignUpController implements Initializable {
-    
+
     Query q = new Query();
     MainApp mainApp;
-    
-    
+
     @FXML
     private Button closeBtn;
     @FXML
@@ -54,7 +54,7 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void closeAction(ActionEvent event) {
@@ -68,9 +68,9 @@ public class SignUpController implements Initializable {
         String forename = forenameTxt.getText();
         String surname = surnameTxt.getText();
         String email = emailTxt.getText();
-        try{
+        try {
             int age = Integer.parseInt(ageTxt.getText());
-            if(username != null && password != null && forename != null && surname!= null && email!= null && age >= 18){
+            if (username != null && password != null && forename != null && surname != null && email != null && age >= 18) {
                 try {
                     q.createUser(username, forename, surname, password, email, age);
                 } catch (SQLException ex) {
@@ -79,17 +79,22 @@ public class SignUpController implements Initializable {
                     Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mainApp.showLogin();
-            }else{
-                System.out.println("Eine eingabe war falsch");
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Eine Eingabe ist Falsch oder fehlt",
+                        "Fehler Meldung",
+                        JOptionPane.WARNING_MESSAGE);
             }
-        }catch(NumberFormatException e){
-            System.out.println("age ist keine Zahl");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null,
+                    "age muss eine Zahl sein",
+                    "Fehler Meldung",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
-    
-    
+
 }

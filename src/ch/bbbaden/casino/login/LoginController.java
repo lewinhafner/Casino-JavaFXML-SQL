@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -26,7 +27,7 @@ import javafx.scene.control.TextField;
  * @author misch
  */
 public class LoginController implements Initializable {
-    
+
     private int id = 0;
     private String username = "";
     private String password = "";
@@ -35,7 +36,7 @@ public class LoginController implements Initializable {
     ArrayList<User> users = new ArrayList<>();
     private String signUp = "";
     MainApp mainApp;
-    
+
     @FXML
     private TextField usernameTxt;
     @FXML
@@ -59,17 +60,15 @@ public class LoginController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-      
-
         for (int i = 0; i < sql.getUsers().size(); i++) {
             users.add(sql.getUsers().get(i));
         }
-    }    
+    }
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
-    
+
     @FXML
     private void SigneAction(ActionEvent event) {
         mainApp.showSignUp();
@@ -80,21 +79,28 @@ public class LoginController implements Initializable {
         username = usernameTxt.getText();
         password = passwordTxt.getText();
 
-        for(User u : users){
+        for (User u : users) {
             if (u.getUsername().equals(username)) {
                 if (u.getPassword().equals(password)) {
                     System.out.println("Login Successful!!");
                     mainApp.setUser(u);
                     mainApp.showMainMenu();
-                    
+
                     break;
                 } else {
-                    System.out.println("Benutzername/Password Falsch");
+                    JOptionPane.showMessageDialog(null,
+                            "Benutzername/Password Falsch",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
                 }
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Benutzername/Password Falsch",
+                        "Fehler Meldung",
+                        JOptionPane.WARNING_MESSAGE);
             }
         }
-        
-        
+
     }
-    
+
 }

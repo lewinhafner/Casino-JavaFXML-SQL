@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -24,7 +25,7 @@ public class KasseController implements Initializable {
 
     MainApp mainApp;
     User user;
-    
+
     @FXML
     private TextField einzahlungTxt;
     @FXML
@@ -38,18 +39,21 @@ public class KasseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void einzahlenAction(ActionEvent event) {
-        try{
+        try {
             double einzahlung = Double.parseDouble(einzahlungTxt.getText());
-            user.setBalance(user.getBalance()+einzahlung);
+            user.setBalance(user.getBalance() + einzahlung);
             mainApp.showMainMenu();
-        }catch(NumberFormatException e){
-        
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Sie müssen eine Zahl eingeben",
+                    "Fehler Meldung",
+                    JOptionPane.WARNING_MESSAGE);
         }
-        
+
     }
 
     @FXML
@@ -64,6 +68,5 @@ public class KasseController implements Initializable {
     public void setUser(User user) {
         this.user = user;
     }
-    
-    
+
 }
