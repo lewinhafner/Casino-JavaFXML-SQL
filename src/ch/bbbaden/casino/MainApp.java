@@ -61,6 +61,7 @@ public class MainApp extends Application {
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
             view.bind();
+            view.userAdmin();
             final Scene scene = new Scene(root);         
             stage.setScene(scene);
             stage.show();
@@ -119,6 +120,22 @@ public class MainApp extends Application {
         }
        
      }
+       public void showStatistik(){
+         
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainmenu/Admin.fxml"));
+            Parent root;
+            root = loader.load();
+            AdminController view = loader.getController();
+            view.setMainApp(this);
+            final Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+     }
     public void showVideoPokerMenu() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("videopoker/VideoPokerMenu.fxml"));
@@ -138,6 +155,8 @@ public class MainApp extends Application {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+   
 
     public void showVideoPokerGame() {
         try {

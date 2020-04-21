@@ -37,6 +37,8 @@ public class MainMenuController implements Initializable {
     private Label blackjackLbl;
     @FXML
     private Label kontoUserlbl;
+    @FXML
+    private Button statistikBtn;
     /**
      * Initializes the controller class.
      */
@@ -44,8 +46,6 @@ public class MainMenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        
-//     kontoUserlbl.setText(Double.toString(vm.getBalance()));
-        
     }    
      public void bind(){
         kontoUserlbl.textProperty().bind(vm.getBalance());
@@ -84,6 +84,19 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void blackjackAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void statistikAction(ActionEvent event) {
+        vm.showStats();
+    }
+    
+    public void userAdmin(){
+        if(vm.getRole().equals("admin")){
+            statistikBtn.setVisible(true);
+        }else{
+            statistikBtn.setVisible(false);    
+        }
     }
      
 }

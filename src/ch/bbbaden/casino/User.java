@@ -46,8 +46,12 @@ public class User {
         return password;
     }
 
-    
+    public String getRole() {
+        return role;
+    }
 
+    
+    
    
     public int getId() {
         return id;

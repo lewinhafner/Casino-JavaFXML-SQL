@@ -90,7 +90,44 @@ public class Query {
     public ArrayList<User> getUsers() {
         return users;
     }
-    
+    public ArrayList<String> getUsersStats(String user) throws SQLException, ClassNotFoundException{
+        ArrayList<String> ausgabe = new ArrayList<>();
+        String query = "Select g.gameName, s.bet, s.results, s.changes from statistics s, game g, users u where idG = gameID AND usersID = idU AND username = '"+user+"'";
+        Connection conn = jdbc.createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        int columns = rs.getMetaData().getColumnCount();
+         while(rs.next()){
+             String eingabe = "";
+            for(int i = 1; i<= columns; i++){
+                eingabe += String.format("%-15s", rs.getString(i));
+            }
+            ausgabe.add(eingabe);
+        }
+        rs.close();
+        stmt.close();
+        jdbc.closeConnection();
+        return ausgabe;
+    }
+    public ArrayList<String> getSpielStats(String game) throws SQLException, ClassNotFoundException{
+         ArrayList<String> ausgabe = new ArrayList<>();
+        String query = "Select u.username, s.bet, s.results, s.changes from statistics s, game g, users u where idG = gameID AND usersID = idU AND gameName = '"+game+"'";
+        Connection conn = jdbc.createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        int columns = rs.getMetaData().getColumnCount();
+         while(rs.next()){
+             String eingabe = "";
+            for(int i = 1; i<= columns; i++){
+                eingabe += String.format("%-15s", rs.getString(i));
+            }
+            ausgabe.add(eingabe);
+        }
+        rs.close();
+        stmt.close();
+        jdbc.closeConnection();
+        return ausgabe;
+    }
      public void ausgabe() throws SQLException, ClassNotFoundException{
         String query = "Select * from users";
         Connection conn = jdbc.createConnection();

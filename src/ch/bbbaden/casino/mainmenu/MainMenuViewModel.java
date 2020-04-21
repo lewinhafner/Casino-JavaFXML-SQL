@@ -52,6 +52,11 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public StringProperty getBalance() {
         return balance;
     }
-    
+    public String getRole(){
+        return user.getRole();
+    }
+    public void showStats(){
+        mainApp.showStatistik();
+    }
    
 }
