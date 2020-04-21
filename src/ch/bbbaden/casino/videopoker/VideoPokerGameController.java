@@ -148,7 +148,7 @@ public class VideoPokerGameController implements Initializable {
     @FXML
     private void card1Action(MouseEvent event) {
         //Card wegtun
-        if(gambleMode == false){
+        if(gambleMode == false && ersteRunde != true){
             vm.card(0);
             if(vm.getCard(0).getHold() == false){
                 weg1.setVisible(true);
@@ -166,7 +166,7 @@ public class VideoPokerGameController implements Initializable {
      @FXML
     private void card2Action(MouseEvent event) {
         //Card wegtun
-        if(gambleMode == false){
+        if(gambleMode == false && ersteRunde != true){
             vm.card(1);
             if(vm.getCard(1).getHold() == false){
                 weg2.setVisible(true);
@@ -185,7 +185,7 @@ public class VideoPokerGameController implements Initializable {
     @FXML
     private void card3Action(MouseEvent event) {
         //Card wegtun
-        if(gambleMode == false){
+        if(gambleMode == false && ersteRunde != true){
             vm.card(2);
             if(vm.getCard(2).getHold() == false){
                 weg3.setVisible(true);
@@ -203,7 +203,7 @@ public class VideoPokerGameController implements Initializable {
     @FXML
     private void card4Action(MouseEvent event) {
         //Card wegtun
-         if(gambleMode == false){
+         if(gambleMode == false && ersteRunde != true){
             vm.card(3);
             if(vm.getCard(3).getHold() == false){
                 weg4.setVisible(true);
@@ -221,7 +221,7 @@ public class VideoPokerGameController implements Initializable {
     @FXML
     private void card5Action(MouseEvent event) {
         //Card wegtun
-        if(gambleMode == false){
+        if(gambleMode == false && ersteRunde != true){
             vm.card(4);
             if(vm.getCard(4).getHold() == false){
                 weg5.setVisible(true);

@@ -211,6 +211,7 @@ public class VideoPokerGameModel {
                 winQuote = winQuote *2;
                 canGamble = false;
                 double oldBalance = balance;
+                gewonnen *= 2;
                 balance += gewonnen; 
                 user.setBalance(balance);
                 user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
@@ -551,12 +552,25 @@ public class VideoPokerGameModel {
             rank1 = rankA.get(4);
         }
         int anz = 0;
+        Rank rank2 = null;
+        int anz2 = 1;
         for (int i = 0; i < 5; i++) {
+            if(rankA.get(i) == Rank.TWO){
+                anz2 +=1;
+            }
             if (rankA.get(i) == rank1 || rankA.get(i) == Rank.TWO) {
                 anz += 1;
+                
+            }else{
+                if(rankA.get(i) == rank2){
+                    anz2 += 1;
+                }else{
+                    rank2 = rankA.get(i);
+                    
+                }
             }
         }
-        if (anz == 4) {
+        if (anz == 4|| anz2 == 4) {
             return true;
         }
         return false;
@@ -710,12 +724,20 @@ public class VideoPokerGameModel {
             return false;
         }
         int anz = 0;
+        int anz2 = anzZwei + 1;
+        Rank rank2 = null;
         for (int i = 0; i < 5; i++) {
             if (rankA.get(i) == rank1 || rankA.get(i) == Rank.TWO) {
                 anz += 1;
+            }else{
+                if(rankA.get(i) == rank2){
+                    anz2 += 1;
+                }else{
+                    rank2 = rankA.get(i);                 
+                }
             }
         }
-        if (anz == 3) {
+        if (anz == 3 || anz2 == 3) {
             return true;
         }
         return false;
