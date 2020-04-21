@@ -78,27 +78,26 @@ public class LoginController implements Initializable {
     private void LoginAction(ActionEvent event) {
         username = usernameTxt.getText();
         password = passwordTxt.getText();
-
+        boolean funktioniert = false;
         for (User u : users) {
             if (u.getUsername().equals(username)) {
                 if (u.getPassword().equals(password)) {
                     System.out.println("Login Successful!!");
+                    funktioniert = true;
                     mainApp.setUser(u);
                     mainApp.showMainMenu();
 
-                    break;
-                } else {
-                    JOptionPane.showMessageDialog(null,
-                            "Benutzername/Password Falsch",
-                            "Fehler Meldung",
-                            JOptionPane.WARNING_MESSAGE);
                 }
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        "Benutzername/Password Falsch",
-                        "Fehler Meldung",
-                        JOptionPane.WARNING_MESSAGE);
+
             }
+
+        }
+        if (funktioniert == false) {
+            JOptionPane.showMessageDialog(null,
+                    "Benutzername/Password Falsch",
+                    "Fehler Meldung",
+                    JOptionPane.WARNING_MESSAGE);
+
         }
 
     }
