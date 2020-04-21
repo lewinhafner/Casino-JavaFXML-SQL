@@ -60,6 +60,16 @@ public class VideoPokerGameController implements Initializable {
     private Button hilfeBtn;
     @FXML
     private Label balancelbl;
+    @FXML
+    private Label weg1;
+    @FXML
+    private Label weg2;
+    @FXML
+    private Label weg3;
+    @FXML
+    private Label weg4;
+    @FXML
+    private Label weg5;
     
 
     /**
@@ -69,6 +79,11 @@ public class VideoPokerGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         coinAnz.setText("1");
+        weg1.setVisible(false);
+        weg2.setVisible(false);
+        weg3.setVisible(false);
+        weg4.setVisible(false);
+        weg5.setVisible(false);
     }    
     
      public void bind(){
@@ -112,6 +127,11 @@ public class VideoPokerGameController implements Initializable {
             dealBtn.setText("Draw");
             gambleMode = false;
         }else if (gambleMode == false){
+            weg1.setVisible(false);
+            weg2.setVisible(false);
+            weg3.setVisible(false);
+            weg4.setVisible(false);
+            weg5.setVisible(false);
             vm.spiele();
             cards();
             ersteRunde = true;
@@ -127,10 +147,15 @@ public class VideoPokerGameController implements Initializable {
     private void card1Action(MouseEvent event) {
         if(gambleMode == false){
             vm.card(0);
+            if(vm.getCard(0).getHold() == false){
+                weg1.setVisible(true);
+            }else{
+                weg1.setVisible(false);
+            }
         }else{
             vm.vergleicheCardsGamble(0);
             gambleMode = false;
-             cards();
+            cards();
         }
         
     }
@@ -138,6 +163,11 @@ public class VideoPokerGameController implements Initializable {
     private void card2Action(MouseEvent event) {
         if(gambleMode == false){
             vm.card(1);
+            if(vm.getCard(1).getHold() == false){
+                weg2.setVisible(true);
+            }else{
+                weg2.setVisible(false);
+            }
         }else {
             vm.vergleicheCardsGamble(1);
             gambleMode = false;
@@ -150,6 +180,11 @@ public class VideoPokerGameController implements Initializable {
     private void card3Action(MouseEvent event) {
         if(gambleMode == false){
             vm.card(2);
+            if(vm.getCard(2).getHold() == false){
+                weg3.setVisible(true);
+            }else{
+                weg3.setVisible(false);
+            }
         }else{
             vm.vergleicheCardsGamble(2);
             gambleMode = false;
@@ -161,6 +196,11 @@ public class VideoPokerGameController implements Initializable {
     private void card4Action(MouseEvent event) {
          if(gambleMode == false){
             vm.card(3);
+            if(vm.getCard(3).getHold() == false){
+                weg4.setVisible(true);
+            }else{
+                weg4.setVisible(false);
+            }
         }else{
             vm.vergleicheCardsGamble(3);
             gambleMode = false;
@@ -172,6 +212,11 @@ public class VideoPokerGameController implements Initializable {
     private void card5Action(MouseEvent event) {
         if(gambleMode == false){
             vm.card(4);
+            if(vm.getCard(4).getHold() == false){
+                weg5.setVisible(true);
+            }else{
+                weg5.setVisible(false);
+            }
         }else{
             vm.vergleicheCardsGamble(4);
             gambleMode = false;

@@ -30,6 +30,7 @@ public class SignUpController implements Initializable {
 
     Query q = new Query();
     MainApp mainApp;
+    ArrayList<User> users = new ArrayList<>();
 
     @FXML
     private Button closeBtn;
@@ -53,7 +54,16 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            // TODO
+            q.updateUser();
+            users = q.getUsers();
+        } catch (SQLException ex) {
+            Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     @FXML
@@ -70,15 +80,29 @@ public class SignUpController implements Initializable {
         String email = emailTxt.getText();
         try {
             int age = Integer.parseInt(ageTxt.getText());
-            if (username != null && password != null && forename != null && surname != null && email != null && age >= 18) {
-                try {
-                    q.createUser(username, forename, surname, password, email, age);
-                } catch (SQLException ex) {
-                    Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+            if (username.length() > 5 && password.length() > 5 && forename.length() > 1 && surname.length() > 1 && email.length() > 2 && age >= 18) {
+                boolean vergeben = false;
+                for (User u : users) {
+                    if (u.getUsername().equals(username)) {
+                        vergeben = true;
+                    }
                 }
-                mainApp.showLogin();
+                if (vergeben == false) {
+                    try {
+                        q.createUser(username, forename, surname, password, email, age);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    mainApp.showLogin();
+                }else{
+                     JOptionPane.showMessageDialog(null,
+                        "Username ist schon vergeben",
+                        "Fehler Meldung",
+                        JOptionPane.WARNING_MESSAGE);
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null,
                         "Eine Eingabe ist Falsch oder fehlt",
@@ -87,7 +111,7 @@ public class SignUpController implements Initializable {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null,
-                    "age muss eine Zahl sein",
+                    "Eine Eingabe ist Falsch oder fehlt",
                     "Fehler Meldung",
                     JOptionPane.WARNING_MESSAGE);
         }

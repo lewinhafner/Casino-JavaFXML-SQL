@@ -20,3 +20,7 @@ and open the template in the editor.
 .menuBtn{
     -fx-background-color: rgb(255, 0, 42);
 }
+.wegCard{
+    -fx-background-color: black;
+    -fx-text-align: center;
+}

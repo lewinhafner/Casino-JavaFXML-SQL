@@ -97,5 +97,30 @@
             <String fx:value="Button" />
             <String fx:value="hilfeBtn" />
          </styleClass></Button>
+      <Label fx:id="weg1" alignment="CENTER" layoutX="29.0" layoutY="312.0" prefHeight="29.0" prefWidth="137.0" styleClass="wegCard" text="weg" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="weg2" alignment="CENTER" layoutX="182.0" layoutY="312.0" prefHeight="29.0" prefWidth="137.0" styleClass="wegCard" text="weg" textFill="#f8f8f8">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="weg3" alignment="CENTER" layoutX="339.0" layoutY="312.0" prefHeight="29.0" prefWidth="137.0" styleClass="wegCard" text="weg" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="weg4" alignment="CENTER" layoutX="499.0" layoutY="312.0" prefHeight="29.0" prefWidth="137.0" styleClass="wegCard" text="weg" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="weg5" alignment="CENTER" layoutX="661.0" layoutY="312.0" prefHeight="29.0" prefWidth="137.0" styleClass="wegCard" text="weg" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
