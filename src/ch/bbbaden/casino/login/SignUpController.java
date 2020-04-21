@@ -82,10 +82,17 @@ public class SignUpController implements Initializable {
             int age = Integer.parseInt(ageTxt.getText());
             if (username.length() > 5 && password.length() > 5 && forename.length() > 1 && surname.length() > 1 && email.length() > 2 && age >= 18) {
                 boolean vergeben = false;
+                boolean emailKor = true;
                 for (User u : users) {
                     if (u.getUsername().equals(username)) {
                         vergeben = true;
                     }
+                }
+                if(email.matches("^[\\w\\.=-]+@[\\w\\.-]+\\.[\\w]{2,4}$")){
+                    
+                }else{
+                    vergeben = true;
+                    emailKor = false;
                 }
                 if (vergeben == false) {
                     try {
@@ -97,10 +104,17 @@ public class SignUpController implements Initializable {
                     }
                     mainApp.showLogin();
                 }else{
+                    if(emailKor == false){
+                    JOptionPane.showMessageDialog(null,
+                        "Email-Adresse falsch",
+                        "Fehler Meldung",
+                        JOptionPane.WARNING_MESSAGE);
+                    }else{
                      JOptionPane.showMessageDialog(null,
                         "Username ist schon vergeben",
                         "Fehler Meldung",
                         JOptionPane.WARNING_MESSAGE);
+                    }
                 }
 
             } else {
