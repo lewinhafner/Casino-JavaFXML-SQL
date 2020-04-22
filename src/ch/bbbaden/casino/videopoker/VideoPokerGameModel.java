@@ -68,16 +68,16 @@ public class VideoPokerGameModel {
                 coinAnz = 1;
             } else {
                 //Überprüfung ob genug Geld
-                if((coinAnz + 1) * coinVal > balance){
+                if ((coinAnz + 1) * coinVal > balance) {
                     JOptionPane.showMessageDialog(null,
                             "Sie haben zu wenig Geld um die Coin Anzahl hochzusetzen!",
                             "Fehler Meldung",
                             JOptionPane.WARNING_MESSAGE);
-                  coinAnz = 1;
-                }else{
+                    coinAnz = 1;
+                } else {
                     coinAnz += 1;
                 }
-                
+
             }
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
         }
@@ -88,15 +88,15 @@ public class VideoPokerGameModel {
         if (ersteRunde == true && canGamble == false) {
             int oldCoin = coinAnz;
             //Überprüfung ob genug Geld
-            if(coinVal * 5 > balance){
-                  JOptionPane.showMessageDialog(null,
-                            "Sie haben zu wenig Geld um die Coin Anzahl hochzusetzen!",
-                            "Fehler Meldung",
-                            JOptionPane.WARNING_MESSAGE);
-            }else{
+            if (coinVal * 5 > balance) {
+                JOptionPane.showMessageDialog(null,
+                        "Sie haben zu wenig Geld um die Coin Anzahl hochzusetzen!",
+                        "Fehler Meldung",
+                        JOptionPane.WARNING_MESSAGE);
+            } else {
                 coinAnz = 5;
             }
-            
+
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
         }
     }
@@ -301,7 +301,7 @@ public class VideoPokerGameModel {
                 double oldBalance = balance;
                 balance += gewonnen;
                 user.setBalance(balance);
-                
+
                 user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
                 gewonnen *= 2;
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
@@ -631,7 +631,7 @@ public class VideoPokerGameModel {
         Rank rank1 = null;
         Collections.sort(rankA);
         if (rankA.get(0) != Rank.TWO) {
-            rank1 = rankA.get(0);           
+            rank1 = rankA.get(0);
         } else if (rankA.get(1) != Rank.TWO) {
             rank1 = rankA.get(1);
         } else if (rankA.get(2) != Rank.TWO) {
@@ -825,8 +825,10 @@ public class VideoPokerGameModel {
                 if (rankA.get(i) == rank2) {
                     anz2 += 1;
                 } else {
-                    rank2 = rankA.get(i);
-                    anz2 = 1;
+                    if (anz2 + anzZwei != 3) {
+                        rank2 = rankA.get(i);
+                        anz2 = 1;
+                    }
                 }
             }
         }
