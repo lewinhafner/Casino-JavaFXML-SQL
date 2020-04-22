@@ -97,27 +97,27 @@
             <String fx:value="Button" />
             <String fx:value="hilfeBtn" />
          </styleClass></Button>
-      <Label fx:id="weg1" alignment="CENTER" layoutX="36.0" layoutY="347.0" prefHeight="29.0" prefWidth="137.0" text="weg" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="weg1" alignment="CENTER" layoutX="36.0" layoutY="347.0" prefHeight="29.0" prefWidth="137.0" text="ablegen" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="weg2" alignment="CENTER" layoutX="180.0" layoutY="347.0" prefHeight="29.0" prefWidth="145.0" text="weg" textFill="WHITE">
+      <Label fx:id="weg2" alignment="CENTER" layoutX="180.0" layoutY="347.0" prefHeight="29.0" prefWidth="145.0" text="ablegen" textFill="WHITE">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="weg3" alignment="CENTER" layoutX="339.0" layoutY="347.0" prefHeight="29.0" prefWidth="145.0" text="weg" textFill="WHITE">
+      <Label fx:id="weg3" alignment="CENTER" layoutX="339.0" layoutY="347.0" prefHeight="29.0" prefWidth="145.0" text="ablegen" textFill="WHITE">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="weg4" alignment="CENTER" layoutX="501.0" layoutY="347.0" prefHeight="29.0" prefWidth="137.0" text="weg" textFill="WHITE">
+      <Label fx:id="weg4" alignment="CENTER" layoutX="501.0" layoutY="347.0" prefHeight="29.0" prefWidth="137.0" text="ablegen" textFill="WHITE">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="weg5" alignment="CENTER" layoutX="657.0" layoutY="341.0" prefHeight="29.0" prefWidth="137.0" text="weg" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="weg5" alignment="CENTER" layoutX="657.0" layoutY="341.0" prefHeight="29.0" prefWidth="137.0" text="ablegen" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
