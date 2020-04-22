@@ -686,13 +686,13 @@ public class VideoPokerGameModel {
         Rank rank2 = null;
         if (rankA.get(0) != Rank.TWO && rankA.get(0) != rank1) {
             rank2 = rankA.get(0);
-        } else if (rankA.get(1) != Rank.TWO && rankA.get(0) != rank1) {
+        } else if (rankA.get(1) != Rank.TWO && rankA.get(1) != rank1) {
             rank2 = rankA.get(1);
-        } else if (rankA.get(2) != Rank.TWO && rankA.get(0) != rank1) {
+        } else if (rankA.get(2) != Rank.TWO && rankA.get(2) != rank1) {
             rank2 = rankA.get(2);
-        } else if (rankA.get(3) != Rank.TWO && rankA.get(0) != rank1) {
+        } else if (rankA.get(3) != Rank.TWO && rankA.get(3) != rank1) {
             rank2 = rankA.get(3);
-        } else if (rankA.get(4) != Rank.TWO && rankA.get(0) != rank1) {
+        } else if (rankA.get(4) != Rank.TWO && rankA.get(4) != rank1) {
             rank2 = rankA.get(4);
         }
         int anz1 = 0;
