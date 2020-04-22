@@ -45,6 +45,8 @@ public class LoginController implements Initializable {
     private Button signeUpBtn;
     @FXML
     private Button LoginBtn;
+    @FXML
+    private Button exitBtn;
 
     /**
      * Initializes the controller class.
@@ -100,6 +102,11 @@ public class LoginController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+    private void exitButton(ActionEvent event) {
+        System.exit(0);
     }
 
 }

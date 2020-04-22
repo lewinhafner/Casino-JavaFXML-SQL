@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="367.0" prefWidth="500.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.login.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="318.0" prefWidth="483.0" stylesheets="@Login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.login.LoginController">
    <children>
-      <ImageView fitHeight="417.0" fitWidth="599.0" layoutX="-48.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="484.0" fitWidth="791.0" layoutX="-240.0" layoutY="-113.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../picture/Background.jpg" />
          </image>
@@ -33,7 +33,7 @@
             <String fx:value="Button" />
             <String fx:value="colorBtn" />
          </styleClass></Button>
-      <Button fx:id="LoginBtn" layoutX="387.0" layoutY="242.0" mnemonicParsing="false" onAction="#LoginAction" text="Login">
+      <Button fx:id="LoginBtn" layoutX="358.0" layoutY="242.0" mnemonicParsing="false" onAction="#LoginAction" text="Login">
          <font>
             <Font name="Impact" size="24.0" />
          </font>
@@ -43,5 +43,11 @@
          </styleClass></Button>
       <Label layoutX="40.0" layoutY="318.0" text="Alle Felder mit * müssen ausgefüllt werden" textFill="WHITE" />
       <PasswordField fx:id="passwordTxt" layoutX="182.0" layoutY="151.0" />
+      <Button fx:id="exitBtn" layoutX="443.0" layoutY="11.0" mnemonicParsing="false" onAction="#exitButton" text="X">
+         <styleClass>
+            <String fx:value="Button" />
+            <String fx:value="logoutBtn" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>
