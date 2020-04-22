@@ -301,8 +301,9 @@ public class VideoPokerGameModel {
                 double oldBalance = balance;
                 balance += gewonnen;
                 user.setBalance(balance);
-                gewonnen *= 2;
+                
                 user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
+                gewonnen *= 2;
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
                 changes.firePropertyChange("win", winOld, winQuote);
