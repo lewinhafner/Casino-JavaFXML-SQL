@@ -578,11 +578,11 @@ public class VideoPokerGameModel {
                 break;
             }
         }
-        if (cardsOnTable.contains(Rank.ACE)) {
-            return false;
-        }
         if (alleFarben == true) {
             Collections.sort(rankA);
+            if (rankA.get(4) == Rank.ACE) {
+            return false;
+            }
             Rank rank1 = null;
             if (rankA.get(0) != Rank.TWO) {
                 rank1 = rankA.get(0);
