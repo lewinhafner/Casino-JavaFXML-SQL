@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="545.0" prefWidth="815.0" stylesheets="@VideoPokerGame.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.videopoker.VideoPokerGameController">
+<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="979.0" stylesheets="@VideoPokerGame.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.videopoker.VideoPokerGameController">
    <children>
-      <ImageView fitHeight="547.0" fitWidth="821.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="671.0" fitWidth="1017.0" layoutY="-113.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../picture/VPGameBackground.jpg" />
          </image>
@@ -89,7 +89,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="hilfeBtn" layoutX="767.0" layoutY="14.0" mnemonicParsing="false" onAction="#hilfeAction" text="?" textFill="WHITE">
+      <Button fx:id="hilfeBtn" layoutX="948.0" layoutY="14.0" mnemonicParsing="false" onAction="#hilfeAction" text="?" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -122,5 +122,9 @@
             <Font name="Impact" size="24.0" />
          </font>
       </Label>
+      <ImageView fitHeight="330.0" fitWidth="190.0" layoutX="806.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../picture/GewinntafelGame.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>
