@@ -9,6 +9,7 @@ import ch.bbbaden.casino.MainApp;
 import ch.bbbaden.casino.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,8 +27,15 @@ public class VideoPokerMenuViewModel {
     }
     
     public void startAction(){
-       
-        mainApp.showVideoPokerGame();
+       if(Double.parseDouble(balance.getValue()) < 0.25){
+           JOptionPane.showMessageDialog(null,
+                    "Sie haben zu wenig Geld um zu spielen!",
+                    "Fehler Meldung",
+                    JOptionPane.WARNING_MESSAGE);
+       }else{
+           mainApp.showVideoPokerGame();
+       }
+        
         
     }
 

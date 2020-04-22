@@ -11,6 +11,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,20 +35,16 @@ public class VideoPokerGameModel {
     private double gesetzt;
     private double multiplicator = 0;
     private double gewonnen = 0;
-   
 
-    
-    
     public VideoPokerGameModel(User user) {
         this.user = user;
         balance = user.getBalance();
     }
-    
-    
+
     public void AddPropertyChangeListener(final PropertyChangeListener listener) {
         changes.addPropertyChangeListener(listener);
     }
-    
+
     public void generateCards() {
         //Kartendeck generieren
         deck.removeAll(deck);
@@ -62,7 +59,7 @@ public class VideoPokerGameModel {
     public double getBalance() {
         return balance;
     }
-    
+
     public void coinAnzBet1() {
         //1 coin wetten
         if (ersteRunde == true && canGamble == false) {
@@ -70,39 +67,128 @@ public class VideoPokerGameModel {
             if (coinAnz == 5) {
                 coinAnz = 1;
             } else {
-                coinAnz += 1;
+                //Überprüfung ob genug Geld
+                if((coinAnz + 1) * coinVal > balance){
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um die Coin Anzahl hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                  coinAnz = 1;
+                }else{
+                    coinAnz += 1;
+                }
+                
             }
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
         }
     }
 
     public void coinAnzBet5() {
-         //5 coins wetten
-        if (ersteRunde == true&& canGamble == false) {
+        //5 coins wetten
+        if (ersteRunde == true && canGamble == false) {
             int oldCoin = coinAnz;
-            coinAnz = 5;
+            //Überprüfung ob genug Geld
+            if(coinVal * 5 > balance){
+                  JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um die Coin Anzahl hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+            }else{
+                coinAnz = 5;
+            }
+            
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
         }
     }
 
     public void setCoinVal() {
-         //Einsetzen wie viel ein Coin Wert ist
+        //Einsetzen wie viel ein Coin Wert ist
         if (ersteRunde == true && canGamble == false) {
             double oldValue = coinVal;
             if (coinVal == 0.25) {
-                coinVal = 0.5;
+                //Überprüfung ob genug Geld
+                if (0.5 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 0.5;
+                }
+
             } else if (coinVal == 0.5) {
-                coinVal = 1;
+                //Überprüfung ob genug Geld
+                if (1 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 1;
+                }
+
             } else if (coinVal == 1) {
-                coinVal = 2;
+                //Überprüfung ob genug Geld
+                if (2 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 2;
+                }
+
             } else if (coinVal == 2) {
-                coinVal = 5;
+                //Überprüfung ob genug Geld
+                if (5 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 5;
+                }
+
             } else if (coinVal == 5) {
-                coinVal = 10;
+                //Überprüfung ob genug Geld
+                if (10 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 10;
+                }
+
             } else if (coinVal == 10) {
-                coinVal = 50;
+                //Überprüfung ob genug Geld
+                if (50 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 50;
+                }
+
             } else if (coinVal == 50) {
-                coinVal = 100;
+                //Überprüfung ob genug Geld
+                if (100 * coinAnz > balance) {
+                    JOptionPane.showMessageDialog(null,
+                            "Sie haben zu wenig Geld um den Coin Wert hochzusetzen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
+                    coinVal = 0.25;
+                } else {
+                    coinVal = 100;
+                }
+
             } else {
                 coinVal = 0.25;
             }
@@ -115,7 +201,7 @@ public class VideoPokerGameModel {
             //erste Runde
             gesetzt = coinAnz * coinVal;
             double oldBalance = balance;
-            balance = balance - coinAnz*coinVal;
+            balance = balance - coinAnz * coinVal;
             changes.firePropertyChange("balanceUpdate", oldBalance, balance);
             user.setBalance(balance);
             generateCards();
@@ -156,9 +242,9 @@ public class VideoPokerGameModel {
                 winTxt = "Win";
                 gewonnen = gesetzt + gesetzt * multiplicator;
                 double oldBalance = balance;
-                balance  += gesetzt + gesetzt * multiplicator; 
+                balance += gesetzt + gesetzt * multiplicator;
                 user.setBalance(balance);
-                user.updateStatistics(4, gesetzt, winTxt, gesetzt*multiplicator);
+                user.updateStatistics(4, gesetzt, winTxt, gesetzt * multiplicator);
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
@@ -193,7 +279,7 @@ public class VideoPokerGameModel {
 
     public void vergleicheCardsGamble(int i) {
         //Gemacht wenn man Karte umdreht
-        if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren") || cardsOnTable.get(i).isVerdeckt()==false) {
+        if (winTxt.equals("Gamble verloren") || winTxt.equals("Du hast verloren") || cardsOnTable.get(i).isVerdeckt() == false) {
 
         } else {
             String oldWinTxt = winTxt;
@@ -210,10 +296,10 @@ public class VideoPokerGameModel {
             if (karte2.getRank().getValue() > karte1.getRank().getValue()) {
                 winTxt = "Gamble gewonnen";
                 int winOld = winQuote;
-                winQuote = winQuote *2;
+                winQuote = winQuote * 2;
                 canGamble = false;
                 double oldBalance = balance;
-                 balance += gewonnen; 
+                balance += gewonnen;
                 user.setBalance(balance);
                 gewonnen *= 2;
                 user.updateStatistics(4, gewonnen, "Win gamble", gewonnen);
@@ -224,9 +310,9 @@ public class VideoPokerGameModel {
                 winTxt = "Gamble verloren";
                 canGamble = false;
                 double oldBalance = balance;
-                balance -= gewonnen; 
+                balance -= gewonnen;
                 user.setBalance(balance);
-                user.updateStatistics(4, gewonnen, "Loose gamble", gewonnen*(-1));
+                user.updateStatistics(4, gewonnen, "Loose gamble", gewonnen * (-1));
                 changes.firePropertyChange("balanceUpdate", oldBalance, balance);
                 changes.firePropertyChange("winTxt", oldWinTxt, winTxt);
             } else {
@@ -301,6 +387,7 @@ public class VideoPokerGameModel {
     public ArrayList<Card> getCardsOnTable() {
         return cardsOnTable;
     }
+
     //Alle Gewinn Sachen werden überprüft ab hier
     private boolean natural_royal_flush() {
         ArrayList<Rank> rankA = new ArrayList<>();
@@ -557,22 +644,22 @@ public class VideoPokerGameModel {
         Rank rank2 = null;
         int anz2 = 1;
         for (int i = 0; i < 5; i++) {
-            if(rankA.get(i) == Rank.TWO){
-                anz2 +=1;
+            if (rankA.get(i) == Rank.TWO) {
+                anz2 += 1;
             }
             if (rankA.get(i) == rank1 || rankA.get(i) == Rank.TWO) {
                 anz += 1;
-                
-            }else{
-                if(rankA.get(i) == rank2){
+
+            } else {
+                if (rankA.get(i) == rank2) {
                     anz2 += 1;
-                }else{
+                } else {
                     rank2 = rankA.get(i);
-                    
+
                 }
             }
         }
-        if (anz == 4|| anz2 == 4) {
+        if (anz == 4 || anz2 == 4) {
             return true;
         }
         return false;
@@ -657,7 +744,7 @@ public class VideoPokerGameModel {
         }
 
         Collections.sort(rankA);
-       
+
         Rank rank1 = null;
         if (rankA.get(0) != Rank.TWO) {
             rank1 = rankA.get(0);
@@ -731,11 +818,11 @@ public class VideoPokerGameModel {
         for (int i = 0; i < 5; i++) {
             if (rankA.get(i) == rank1 || rankA.get(i) == Rank.TWO) {
                 anz += 1;
-            }else{
-                if(rankA.get(i) == rank2){
+            } else {
+                if (rankA.get(i) == rank2) {
                     anz2 += 1;
-                }else{
-                    rank2 = rankA.get(i);                 
+                } else {
+                    rank2 = rankA.get(i);
                 }
             }
         }
