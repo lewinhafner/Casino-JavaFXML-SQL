@@ -631,7 +631,7 @@ public class VideoPokerGameModel {
         Rank rank1 = null;
         Collections.sort(rankA);
         if (rankA.get(0) != Rank.TWO) {
-            rank1 = rankA.get(0);
+            rank1 = rankA.get(0);           
         } else if (rankA.get(1) != Rank.TWO) {
             rank1 = rankA.get(1);
         } else if (rankA.get(2) != Rank.TWO) {
@@ -643,7 +643,8 @@ public class VideoPokerGameModel {
         }
         int anz = 0;
         Rank rank2 = null;
-        int anz2 = 1;
+        int anz1 = 1;
+        int anz2 = 0;
         for (int i = 0; i < 5; i++) {
             if (rankA.get(i) == Rank.TWO) {
                 anz2 += 1;
@@ -653,13 +654,14 @@ public class VideoPokerGameModel {
 
             } else {
                 if (rankA.get(i) == rank2) {
-                    anz2 += 1;
+                    anz1 += 1;
                 } else {
                     rank2 = rankA.get(i);
-
+                    anz1 = 1;
                 }
             }
         }
+        anz1 += anz2;
         if (anz == 4 || anz2 == 4) {
             return true;
         }
