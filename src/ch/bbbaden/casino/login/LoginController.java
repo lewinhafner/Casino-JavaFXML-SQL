@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            // TODO
+            // Users erstellen
             sql.updateUser();
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,13 +76,13 @@ public class LoginController implements Initializable {
 
     @FXML
     private void LoginAction(ActionEvent event) {
+        //Überprüfung ob es den User gibt
         username = usernameTxt.getText();
         password = passwordTxt.getText();
         boolean funktioniert = false;
         for (User u : users) {
             if (u.getUsername().equals(username)) {
                 if (u.getPassword().equals(password)) {
-                    System.out.println("Login Successful!!");
                     funktioniert = true;
                     mainApp.setUser(u);
                     mainApp.showMainMenu();

@@ -7,6 +7,7 @@ package Datenbank;
 
 import ch.bbbaden.casino.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -80,12 +81,17 @@ public class Query {
     
     public void createUser (String username, String forename,String surname,String password,String email,int age) throws SQLException, ClassNotFoundException{
         //User erstellen
-        String query = "Insert Into users (`username`,`forename`,`surname`, `password`,`email`,`balance`,`age`, `role`) values"
-                + "('"+ username+"','"+forename+"','"+surname+"','"+password+"','"+email+"','"+0+"','"+age+"','player')";
+        String query = "Insert Into users (`username`,`forename`,`surname`, `password`,`email`,`balance`,`age`, `role`) values (?,?,?,?,?,'0',?,'player')";
         Connection conn = jdbc.createConnection();
-        Statement stmt = conn.createStatement();
-        stmt.execute(query);
-        stmt.close();
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, username);
+        ps.setString(2, forename);
+        ps.setString(3, surname);
+        ps.setString(4, password);
+        ps.setString(5, email);
+        ps.setInt(6, age);
+        ps.execute();
+        ps.close();
         conn.close();
         jdbc.closeConnection();
     }
