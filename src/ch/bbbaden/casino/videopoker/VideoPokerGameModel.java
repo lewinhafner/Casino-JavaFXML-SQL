@@ -444,7 +444,7 @@ public class VideoPokerGameModel {
         boolean alleFarben = false;
         Color first = color.get(0);
         for (int i = 1; i < color.size(); i++) {
-            if (first == color.get(i)) {
+            if (first == color.get(i) || rankA.get(i)== Rank.TWO) {
                 alleFarben = true;
             } else {
                 alleFarben = false;
@@ -571,7 +571,7 @@ public class VideoPokerGameModel {
         boolean alleFarben = false;
         Color first = color.get(0);
         for (int i = 1; i < color.size(); i++) {
-            if (first == color.get(i)) {
+            if (first == color.get(i) || rankA.get(i) == Rank.TWO) {
                 alleFarben = true;
             } else {
                 alleFarben = false;
