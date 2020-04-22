@@ -662,7 +662,7 @@ public class VideoPokerGameModel {
             }
         }
         anz1 += anz2;
-        if (anz == 4 || anz2 == 4) {
+        if (anz == 4 || anz1 == 4) {
             return true;
         }
         return false;
