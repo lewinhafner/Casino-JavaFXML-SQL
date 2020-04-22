@@ -24,7 +24,7 @@
          <font>
             <Font name="Impact" size="24.0" />
          </font></Button>
-      <Label fx:id="hilfeTxt" layoutX="37.0" layoutY="27.0" textFill="WHITE" />
+      <Label fx:id="hilfeTxt" layoutX="37.0" layoutY="27.0" text="1. über den Knopf zwischen den Bet köpfen value des Chipes auswählen&#10;2. über die Betknöpfe auswählen wie viele Coins gesetzt werden&#10;3. Auf deal klicken&#10;4. Auf die Karten klicken, die man wegwerfen will&#10;5. Auf Draw klicken&#10;6. wenn gewonnen auf Gamble klicken will, wenn man den Gewinn verwetten will&#10;7. im Gamblemodus auf eine Karte klicken, die noch nicht aufgedeckt wurde&#10;&#10;natural_Royal_Flush -&gt; A,K,Q,J,10(gleiche Farbe) || vier_deuces -&gt; 4 * 2 ||Royal_Flush -&gt; A,K,Q,J,10 (gleiche Farbe + Joker)&#10;5ofAKind -&gt; 5* gleiches Zeichen || straight_Flush -&gt; 5er Folge gleiche Farben(Joker erlaubt, nicht mit Ass beginnend)&#10;4ofAKind -&gt; 4*gleiches Zeichen(Joker) || FullHouse -&gt; 3 und 2 * gleiche Zeichen(Joker)&#10;flush -&gt; 5* selbe Farbe || straight -&gt; 5er Folge(Joker) || 3ofAKind -&gt; 3*gleichesZeichen" textFill="WHITE" />
       <ImageView fitHeight="170.0" fitWidth="709.0" layoutX="201.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../picture/GewinntafelVideoPoker.png" />
