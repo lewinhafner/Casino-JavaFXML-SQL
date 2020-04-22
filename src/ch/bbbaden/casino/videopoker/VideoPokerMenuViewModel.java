@@ -16,12 +16,11 @@ import javax.swing.JOptionPane;
  * @author misch
  */
 public class VideoPokerMenuViewModel {
-    private VideoPokerMenuModel model;
     private MainApp mainApp;
     private User user;
      private StringProperty balance = new SimpleStringProperty();
-    public VideoPokerMenuViewModel(VideoPokerMenuModel model, User user) {
-        this.model = model;
+    public VideoPokerMenuViewModel( User user) {
+        
         this.user = user;
         balance.setValue(Double.toString(user.getBalance()));
     }

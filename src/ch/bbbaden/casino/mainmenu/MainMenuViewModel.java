@@ -17,15 +17,17 @@ import javafx.beans.property.StringProperty;
  * @author misch
  */
 public class MainMenuViewModel implements PropertyChangeListener{
-    private MainMenuModel model;
+    
     private MainApp mainApp;
     private User user;
      private StringProperty balance = new SimpleStringProperty();
+    private StringProperty name = new SimpleStringProperty();
     
-    public MainMenuViewModel(MainMenuModel model, User user) {
-        this.model = model;
+    public MainMenuViewModel( User user) {
+        
         this.user = user;
        balance.setValue(Double.toString(user.getBalance()));
+       name.setValue(user.getUsername());
     }
 
     
@@ -58,5 +60,10 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showStats(){
         mainApp.showStatistik();
     }
+
+    public StringProperty getName() {
+        return name;
+    }
+    
    
 }

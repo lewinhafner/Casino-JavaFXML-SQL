@@ -56,8 +56,8 @@ public class MainApp extends Application {
             Parent root;
             root = loader.load();
              MainMenuController view = loader.getController();
-            MainMenuModel model = new MainMenuModel();
-            MainMenuViewModel viewModel = new MainMenuViewModel(model, user);
+           
+            MainMenuViewModel viewModel = new MainMenuViewModel(user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
             view.bind();
@@ -142,8 +142,7 @@ public class MainApp extends Application {
             Parent root;
             root = loader.load();
             VideoPokerMenuController view = loader.getController();
-            VideoPokerMenuModel model = new VideoPokerMenuModel();
-            VideoPokerMenuViewModel viewModel = new VideoPokerMenuViewModel(model, user);
+            VideoPokerMenuViewModel viewModel = new VideoPokerMenuViewModel(user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
             view.bind();

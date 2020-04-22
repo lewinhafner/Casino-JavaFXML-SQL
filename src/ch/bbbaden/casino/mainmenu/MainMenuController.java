@@ -39,6 +39,8 @@ public class MainMenuController implements Initializable {
     private Label kontoUserlbl;
     @FXML
     private Button statistikBtn;
+    @FXML
+    private Label nameTxt;
     /**
      * Initializes the controller class.
      */
@@ -49,6 +51,7 @@ public class MainMenuController implements Initializable {
     }    
      public void bind(){
         kontoUserlbl.textProperty().bind(vm.getBalance());
+        nameTxt.textProperty().bind(vm.getName());
     }
 
     public void setViewModel(MainMenuViewModel vm) {
