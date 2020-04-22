@@ -816,7 +816,7 @@ public class VideoPokerGameModel {
             return false;
         }
         int anz = 0;
-        int anz2 = anzZwei + 1;
+        int anz2 = 1;
         Rank rank2 = null;
         for (int i = 0; i < 5; i++) {
             if (rankA.get(i) == rank1 || rankA.get(i) == Rank.TWO) {
@@ -826,9 +826,11 @@ public class VideoPokerGameModel {
                     anz2 += 1;
                 } else {
                     rank2 = rankA.get(i);
+                    anz2 = 1;
                 }
             }
         }
+        anz2 += anzZwei;
         if (anz == 3 || anz2 == 3) {
             return true;
         }
