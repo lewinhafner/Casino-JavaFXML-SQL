@@ -81,10 +81,11 @@ public class VideoPokerGameModel {
             }
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
         }else{
-            JOptionPane.showMessageDialog(null,
+             JOptionPane.showMessageDialog(null,
                             "Sie können erst nach der Runde die Coin Anzahl verändern!",
                             "Fehler Meldung",
                             JOptionPane.WARNING_MESSAGE);
+            
         }
     }
 
