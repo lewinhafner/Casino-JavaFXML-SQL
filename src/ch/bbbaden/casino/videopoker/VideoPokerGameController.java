@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -242,6 +243,11 @@ public class VideoPokerGameController implements Initializable {
             vm.gamble();
             gambleMode = true;
             cards();
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können im Moment nicht gamblen. Sie können dies erst tun wenn sie einen gewinn haben.",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
     }
      @FXML

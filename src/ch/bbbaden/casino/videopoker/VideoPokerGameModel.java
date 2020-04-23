@@ -80,6 +80,11 @@ public class VideoPokerGameModel {
 
             }
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können erst nach der Runde die Coin Anzahl verändern!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -98,6 +103,11 @@ public class VideoPokerGameModel {
             }
 
             changes.firePropertyChange("Bet", oldCoin, coinAnz);
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können erst nach der Runde die Coin Anzahl verändern!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -193,6 +203,11 @@ public class VideoPokerGameModel {
                 coinVal = 0.25;
             }
             changes.firePropertyChange("updateCoin", oldValue, coinVal);
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können erst nach der Runde den Coin Wert verändern!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
     }
 
