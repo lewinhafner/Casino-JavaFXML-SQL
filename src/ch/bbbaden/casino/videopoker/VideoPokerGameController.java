@@ -252,7 +252,7 @@ public class VideoPokerGameController implements Initializable {
         }
         
     }
-    public void cards(){
+    private void cards(){
         //Karten anzeigen lassen
         Card karte1 = vm.getCard(0);
         card1.setText("");
@@ -270,7 +270,7 @@ public class VideoPokerGameController implements Initializable {
         card5.setText("");
         card5.setGraphic(new ImageView(showCard(karte5.getColor(),karte5.getRank(),karte5)));
     }
-    public String showCard(Color color, Rank rank, Card card){
+    private String showCard(Color color, Rank rank, Card card){
         //Wie die Karten aussehen
         if(card.isVerdeckt() == true){
             return "cards/purple_back.png";
