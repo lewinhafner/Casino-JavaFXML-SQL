@@ -142,6 +142,11 @@ public class VideoPokerGameController implements Initializable {
             if(winTxtLbl.getText().equals("Win")){
                 canGamble = true;
             }
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können keine neue Runde starten!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
         
     }
@@ -255,6 +260,11 @@ public class VideoPokerGameController implements Initializable {
         //hilfe wechseln
         if(ersteRunde==true && gambleMode== false || ersteRunde==true &&winTxtLbl.getText().equals("Du hast verloren") ){
             vm.hilfe();
+        }else{
+            JOptionPane.showMessageDialog(null,
+                            "Sie können erst nach der Runde die Hilfe ansehen!",
+                            "Fehler Meldung",
+                            JOptionPane.WARNING_MESSAGE);
         }
         
     }
