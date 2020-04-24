@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -21,6 +22,8 @@ public class BlackjackMenuController implements Initializable {
     private Button startBtn;
     @FXML
     private Button mainMenubtn;
+    @FXML
+    private Label moneyLbl;
 
     /**
      * Initializes the controller class.
@@ -40,10 +43,12 @@ public class BlackjackMenuController implements Initializable {
     }
 
     public void bind() {
+        moneyLbl.textProperty().bind(vm.getBalance());
     }
 
     @FXML
     private void mainMenuAction(ActionEvent event) {
+        vm.gotoMenu();
     }
 
 }

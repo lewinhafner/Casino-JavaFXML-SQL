@@ -199,8 +199,7 @@ public class MainApp extends Application {
             Parent root;
             root = loader.load();
             BlackjackMenuController view = loader.getController();
-            BlackjackMenuModel model = new BlackjackMenuModel();
-            BlackjackMenuViewModel viewModel = new BlackjackMenuViewModel(model);
+            BlackjackMenuViewModel viewModel = new BlackjackMenuViewModel(user);
             viewModel.setMainApp(this);
             view.setViewModel(viewModel);
             view.bind();
@@ -226,6 +225,7 @@ public class MainApp extends Application {
         model.AddPropertyChangeListener(viewModel);
         view.setViewModel(viewModel);
         view.bind();
+        view.setUser(user);
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

@@ -1,5 +1,6 @@
 package ch.bbbaden.casino.blackjack;
 
+import ch.bbbaden.casino.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -40,9 +41,9 @@ public class BlackjackGameController implements Initializable {
     private boolean doubleTrue = false;
     private int insurance = 0;
     private boolean insuranceCheck = false;
-    private int creditPlayer = 10000;
     private int score = 0;
     private boolean hasAce = false;
+    private User user;
 
     //--DEFINE CARDS--//
     IntegerProperty card1 = new SimpleIntegerProperty();
@@ -124,7 +125,7 @@ public class BlackjackGameController implements Initializable {
         insurnacetxt.setDisable(true);
         insurnacetxt.setVisible(false);
 
-        creditlbl.setText(Integer.toString(creditPlayer));
+        
 
     }
 
@@ -148,6 +149,12 @@ public class BlackjackGameController implements Initializable {
 
     }
 
+    public void setUser(User user) {
+        this.user = user;
+        creditlbl.setText(Double.toString(user.getBalance()));
+    }
+    
+
     /*When play button is clicked 
     Two cards of Player and Dealer is shown. The Sum of the cards Value will be counted. 
     Double button is shown when, the sum is 9, 10 or 11
@@ -157,6 +164,10 @@ public class BlackjackGameController implements Initializable {
         if (play == true) {
             try {
                 amountsum = Double.parseDouble(amountxt.getText());
+                double oldBalance = user.getBalance();
+                double newBalance = user.getBalance() - amountsum;
+                user.setBalance(newBalance);
+                creditlbl.setText(Double.toString(user.getBalance()));
                 vm.setAmount(amountsum);
                 standactive = true;
                 hitactive = true;
@@ -643,62 +654,79 @@ public class BlackjackGameController implements Initializable {
             if (21 - summeP < 0) {
                 NegativeP = true;
                 resultlbl.setText("YOU LOST!!");
-                creditPlayer -= amountsum * 2;
-                creditlbl.setText(Integer.toString(creditPlayer));
+                double newBalance = user.getBalance() - amountsum;
+                user.setBalance(newBalance);
+                creditlbl.setText(Double.toString(user.getBalance()));
+                user.updateStatistics(5, amountsum*2, resultlbl.getText(), -amountsum*2);
             } else {
                 NegativeP = false;
             }
             if (21 - summeD < 0) {
                 NegativeD = true;
                 resultlbl.setText("YOU WON!!");
-                creditPlayer += amountsum * 2;
-                creditlbl.setText(Integer.toString(creditPlayer));
+                double newBalance = user.getBalance() + amountsum *3;
+                user.setBalance(newBalance);
+                creditlbl.setText(Double.toString(user.getBalance()));
+                 user.updateStatistics(5, amountsum*2, resultlbl.getText(), amountsum*2);
             } else {
                 NegativeD = false;
             }
             if (NegativeP == false && NegativeD == false) {
                 if (21 - summeP < 21 - summeD) {
                     resultlbl.setText("YOU WON!");
-                    creditPlayer += amountsum * 2;
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                     double newBalance = user.getBalance() + amountsum *3;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                    user.updateStatistics(5, amountsum*2, resultlbl.getText(), amountsum*2);
                 } else if (21 - summeP > 21 - summeD) {
                     resultlbl.setText("YOU LOST!!");
-                    creditPlayer -= amountsum * 2;
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                    double newBalance = user.getBalance() - amountsum;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                     user.updateStatistics(5, amountsum*2, resultlbl.getText(), -amountsum*2);
                 } else {
                     resultlbl.setText("TIE!");
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                    double newBalance = user.getBalance() + amountsum;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                     user.updateStatistics(5, amountsum*2, resultlbl.getText(), 0);
                 }
             }
         } else {
             if (21 - summeP < 0) {
                 NegativeP = true;
                 resultlbl.setText("YOU LOST!!");
-                creditPlayer -= amountsum;
-                creditlbl.setText(Integer.toString(creditPlayer));
+                user.updateStatistics(5, amountsum, resultlbl.getText(), -amountsum);
             } else {
                 NegativeP = false;
             }
             if (21 - summeD < 0) {
                 NegativeD = true;
                 resultlbl.setText("YOU WON!!");
-                creditPlayer += amountsum;
-                creditlbl.setText(Integer.toString(creditPlayer));
+                double newBalance = user.getBalance() + amountsum *2;
+                user.setBalance(newBalance);
+                creditlbl.setText(Double.toString(user.getBalance()));
+                user.updateStatistics(5, amountsum, resultlbl.getText(), amountsum);
             } else {
                 NegativeD = false;
             }
             if (NegativeP == false && NegativeD == false) {
                 if (21 - summeP < 21 - summeD) {
-                    resultlbl.setText("YOU WON!");
-                    creditPlayer += amountsum;
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                    resultlbl.setText("YOU WON!!");
+                    double newBalance = user.getBalance() + amountsum *2;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                    user.updateStatistics(5, amountsum, resultlbl.getText(), amountsum);
                 } else if (21 - summeP > 21 - summeD) {
                     resultlbl.setText("YOU LOST!!");
-                    creditPlayer -= amountsum;
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                    user.updateStatistics(5, amountsum, resultlbl.getText(), -amountsum);
+                    
                 } else {
                     resultlbl.setText("TIE!");
-                    creditlbl.setText(Integer.toString(creditPlayer));
+                     double newBalance = user.getBalance() + amountsum;
+                    user.setBalance(newBalance);
+                    creditlbl.setText(Double.toString(user.getBalance()));
+                    user.updateStatistics(5, amountsum, resultlbl.getText(), 0);
                 }
             }
         }
@@ -725,9 +753,15 @@ public class BlackjackGameController implements Initializable {
             dealersum += cardsdealer.get(i).getValue();
         }
         if (dealersum == 21) {
-            creditPlayer += credit;
+            double newBalance = user.getBalance() + credit + amountsum;
+            user.setBalance(newBalance);
+            creditlbl.setText(Double.toString(user.getBalance()));
+            user.updateStatistics(5, amountsum+credit, "Versicherungs gewinn", amountsum*2+credit);
         } else {
-            creditPlayer -= credit;
+            double newBalance = user.getBalance() - credit + amountsum;
+            user.setBalance(newBalance);
+            creditlbl.setText(Double.toString(user.getBalance()));
+            user.updateStatistics(5, amountsum+credit, "Versicherungs verloren", -amountsum-credit);
         }
     }
 
@@ -1213,5 +1247,6 @@ public class BlackjackGameController implements Initializable {
                 break;
         }
     }
+    
 
 }

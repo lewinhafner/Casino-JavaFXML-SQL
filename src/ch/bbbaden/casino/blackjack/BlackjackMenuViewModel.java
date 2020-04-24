@@ -1,6 +1,9 @@
 package ch.bbbaden.casino.blackjack;
 
 import ch.bbbaden.casino.MainApp;
+import ch.bbbaden.casino.User;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -8,12 +11,12 @@ import ch.bbbaden.casino.MainApp;
  */
 public class BlackjackMenuViewModel {
 
-    private final BlackjackMenuModel model;
     private MainApp mainApp;
-
-    public BlackjackMenuViewModel(BlackjackMenuModel model) {
-        this.model = model;
-
+    private User user;
+    private StringProperty balance = new SimpleStringProperty();
+    public BlackjackMenuViewModel(User user) {
+       this.user = user;
+       balance.setValue(Double.toString(user.getBalance()));
     }
 
     public void startAction() {
@@ -25,7 +28,11 @@ public class BlackjackMenuViewModel {
     }
     
     public void gotoMenu(){
-        mainApp.showBlackjackMenu();
+        mainApp.showMainMenu();
     }
 
+    public StringProperty getBalance() {
+        return balance;
+    }
+    
 }
