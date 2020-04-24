@@ -87,6 +87,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void blackjackAction(MouseEvent event) {
+        vm.showBlackjack();
     }
 
     @FXML

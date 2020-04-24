@@ -44,6 +44,9 @@ public class MainMenuViewModel implements PropertyChangeListener{
     public void showPoker(){
         mainApp.showVideoPokerMenu();
     }
+    public void showBlackjack(){
+        mainApp.showBlackjackMenu();
+    }
     
     public void showLogin(){
         mainApp.showLogin();

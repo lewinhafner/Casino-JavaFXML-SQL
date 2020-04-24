@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="963.0" prefWidth="1343.0" style="-fx-background-color: darkgrey;" styleClass="root" stylesheets="@BlackjackGameStyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbbaden.casino.blackjack.BlackjackGameController">
+    <children>
+      <Ellipse fill="#590c7c" layoutX="673.0" layoutY="234.0" radiusX="676.0" radiusY="575.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="40.0" />
+      <Ellipse fill="#6c0f97" layoutX="668.0" layoutY="206.0" radiusX="576.0" radiusY="520.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="183.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="214.0" layoutX="1125.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="37.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="25.0" layoutX="28.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="1293.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="29.0" layoutX="1150.0" layoutY="18.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" layoutX="32.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
+      <QuadCurve controlX="13.0" controlY="214.0" endX="363.0" endY="-66.0" fill="#8d37b5" layoutX="650.0" layoutY="385.0" startX="-301.0" startY="-57.0" stroke="#cd78ee" strokeType="INSIDE" />
+      <Line endX="68.0" endY="9.0" layoutX="347.0" layoutY="319.0" startX="5.0" startY="9.0" stroke="#cd78ee" />
+      <QuadCurve controlX="71.0" controlY="102.0" endX="358.0" endY="-87.0" fill="#6c0f97" layoutX="589.0" layoutY="406.0" startX="-173.5" startY="-78.5" stroke="#cd78ee" strokeType="INSIDE" />
+      <Line endX="68.0" endY="9.0" layoutX="942.0" layoutY="310.0" startX="5.0" startY="9.0" stroke="#cd78ee" />
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="581.0" layoutY="420.0" scaleZ="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INSURNACE 2 TO 1" textOrigin="TOP" wrappingWidth="183.2294921875">
+         <font>
+            <Font name="VAGRounded BT" size="21.0" />
+         </font>
+         <rotationAxis>
+            <Point3D x="10.0" y="5.0" z="10.0" />
+         </rotationAxis>
+      </Text>
+      <Text fill="WHITE" layoutX="475.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BLACKJACK PAYS 2 TO 1" wrappingWidth="411.3310546875">
+         <font>
+            <Font name="VAGRounded BT" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="496.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dealer must stand draw to 16 and stand on all 17's">
+         <font>
+            <Font name="VAGRounded BT" size="15.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41ca2" height="103.0" layoutX="342.0" layoutY="457.0" rotate="33.7" stroke="#cd78ee" strokeType="INSIDE" width="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41ca2" height="99.0" layoutX="471.0" layoutY="529.0" rotate="20.0" stroke="#cd78ee" strokeType="INSIDE" width="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41ca2" height="103.0" layoutX="632.0" layoutY="557.0" stroke="#cd78ee" strokeType="INSIDE" width="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41ca2" height="103.0" layoutX="807.0" layoutY="527.0" rotate="-21.8" stroke="#cd78ee" strokeType="INSIDE" width="73.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a41ca2" height="103.0" layoutX="951.0" layoutY="454.0" rotate="-39.3" stroke="#cd78ee" strokeType="INSIDE" width="73.0" />
+      
+        <Button fx:id="menubtn" cache="true" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" onAction="#menuAction" prefHeight="56.0" prefWidth="104.0" style="-fx-background-color: transparent;" text="Back" textFill="WHITE" textOverrun="CLIP">
+            <font>
+                <Font name="VAGRounded BT" size="24.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Label layoutX="32.0" layoutY="880.0" text="Credit:" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="36.0" />
+            </font>
+        </Label>
+        <Label fx:id="creditlbl" ellipsisString="edede" layoutX="149.0" layoutY="886.0" prefHeight="35.0" prefWidth="128.0" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="doublebtn" layoutX="20.0" layoutY="790.0" mnemonicParsing="false" onMouseClicked="#doubleAction" prefHeight="46.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="Double 2X " textFill="#f8f8f8">
+            <font>
+                <Font name="VAGRounded BT" size="21.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Label layoutX="37.0" layoutY="845.0" text="Insert amount:" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="20.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Label>
+        <Button fx:id="standbtn" layoutX="151.0" layoutY="329.0" mnemonicParsing="false" onAction="#standAction" prefHeight="52.0" prefWidth="123.0" style="-fx-background-color: transparent;" text="Stand" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="24.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Button fx:id="hitbtn" layoutX="175.0" layoutY="266.0" mnemonicParsing="false" onAction="#hitAction" prefHeight="56.0" prefWidth="75.0" style="-fx-background-color: Transparent;" text="Hit" textFill="#fcfcfc">
+            <font>
+                <Font name="VAGRounded BT" size="24.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Label layoutX="1000.0" layoutY="74.0" text="Dealer summe: " textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="1001.0" layoutY="107.0" text="Player summe:" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="totalDealerlbl" layoutX="1131.0" layoutY="70.0" prefHeight="31.0" prefWidth="51.0" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="totalPlayerlbl" layoutX="1131.0" layoutY="103.0" prefHeight="31.0" prefWidth="51.0" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="18.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="cardD1" fitHeight="120.0" fitWidth="85.0" layoutX="589.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardD2" fitHeight="120.0" fitWidth="85.0" layoutX="615.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="cardDHide" fitHeight="121.0" fitWidth="86.0" layoutX="615.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardD3" fitHeight="120.0" fitWidth="85.0" layoutX="642.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardD4" fitHeight="120.0" fitWidth="85.0" layoutX="669.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardD5" fitHeight="120.0" fitWidth="85.0" layoutX="692.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardP1" fitHeight="120.0" fitWidth="85.0" layoutX="612.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardP2" fitHeight="120.0" fitWidth="85.0" layoutX="639.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardP3" fitHeight="120.0" fitWidth="85.0" layoutX="664.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardP4" fitHeight="120.0" fitWidth="85.0" layoutX="692.0" layoutY="491.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="cardP5" fitHeight="120.0" fitWidth="85.0" layoutX="719.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="doubleCard" fitHeight="85.0" fitWidth="120.0" layoutX="664.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="playBtn" layoutX="1095.0" layoutY="711.0" mnemonicParsing="false" onAction="#playAction" prefHeight="73.0" prefWidth="122.0" text="Play">
+            <font>
+                <Font name="VAGRounded BT" size="29.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Button fx:id="resetbtn" layoutX="1094.0" layoutY="797.0" mnemonicParsing="false" onAction="#ResetAction" prefHeight="46.0" prefWidth="128.0" text="Reset">
+            <font>
+                <Font name="VAGRounded BT" size="22.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+        <Label layoutX="638.0" layoutY="718.0" text="Player" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="630.0" layoutY="24.0" text="Dealer" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="24.0" />
+            </font>
+        </Label>
+        <TextField fx:id="amountxt" layoutX="182.0" layoutY="842.0" prefHeight="31.0" prefWidth="108.0" promptText="Amount" />
+        <Label fx:id="doublelbl" layoutX="146.0" layoutY="798.0" prefHeight="31.0" prefWidth="108.0" textFill="WHITE">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Label>
+        <Label fx:id="resultlbl" layoutX="886.0" layoutY="207.0" prefHeight="103.0" prefWidth="462.0" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="56.0" />
+            </font>
+        </Label>
+        <Label fx:id="scorelbl" layoutX="1065.0" layoutY="144.0" prefHeight="21.0" prefWidth="75.0" textFill="WHITE">
+         <font>
+            <Font name="VAGRounded BT" size="18.0" />
+         </font></Label>
+        <Label layoutX="1001.0" layoutY="141.0" text="Score:" textFill="WHITE">
+            <font>
+                <Font name="VAGRounded BT" size="18.0" />
+            </font>
+        </Label>
+      <Button fx:id="insurancebtn" layoutX="16.0" layoutY="746.0" mnemonicParsing="false" onAction="#insuranceAction" prefHeight="42.0" prefWidth="135.0" style="-fx-background-color: transparent;" text="Insurance:" textFill="WHITE">
+         <font>
+            <Font name="VAGRounded BT" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="insurnacetxt" layoutX="140.0" layoutY="751.0" prefHeight="31.0" prefWidth="120.0" promptText="Insurance" />
+    </children>
+</AnchorPane>

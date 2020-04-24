@@ -10,6 +10,7 @@ import ch.bbbaden.casino.login.LoginController;
 import ch.bbbaden.casino.login.SignUpController;
 import ch.bbbaden.casino.mainmenu.*;
 import ch.bbbaden.casino.videopoker.*;
+import ch.bbbaden.casino.blackjack.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,8 +34,6 @@ public class MainApp extends Application {
        
     
        this.stage = stage;
-       stage.initStyle(StageStyle.UNDECORATED);
-       //showMainMenu();
        showLogin();
 
     }
@@ -191,6 +190,51 @@ public class MainApp extends Application {
         }catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    
+     public void showBlackjackMenu() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("blackjack/BlackjackMenu.fxml"));
+            Parent root;
+            root = loader.load();
+            BlackjackMenuController view = loader.getController();
+            BlackjackMenuModel model = new BlackjackMenuModel();
+            BlackjackMenuViewModel viewModel = new BlackjackMenuViewModel(model);
+            viewModel.setMainApp(this);
+            view.setViewModel(viewModel);
+            view.bind();
+            final Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
+    public void showBlackjackGame() {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("blackjack/BlackjackGame.fxml"));
+        Parent root;
+        root = loader.load();
+        BlackjackGameController view = loader.getController();
+        BlackjackGameModel model = new BlackjackGameModel();
+        BlackjackGameViewModel viewModel = new BlackjackGameViewModel(model);
+        viewModel.setMainApp(this);
+        model.AddPropertyChangeListener(viewModel);
+        view.setViewModel(viewModel);
+        view.bind();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }
